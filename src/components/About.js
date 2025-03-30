@@ -11,15 +11,15 @@ function About() {
     lineHeight: "1.6",
   };
 
-  const aboutRef = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const aboutRef = useRef(null); // direct reference to <section id=about DOM so we know when it appears on screen
+  const [visible, setVisible] = useState(false); // Controls when the 'fade-in' animation should be active
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.2 }
+      ([entry]) => setVisible(entry.isIntersecting), // when visible, setVisible(true) is called
+      { threshold: 0.2 } // entry.isIntersecting is True when 20% of element is visible 
     );
-    if (aboutRef.current) observer.observe(aboutRef.current);
+    if (aboutRef.current) observer.observe(aboutRef.current); 
     return () => observer.disconnect();
   }, []);
 
