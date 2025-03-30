@@ -6,8 +6,12 @@ const greetings = ["xin chào", "hey", "你好", "bonjour", "hola"];
 function Hero() {
   const [currentGreeting, setCurrentGreeting] = useState(0);
   const [fadeClass, setFadeClass] = useState("fade-in");
+  const [initialLoad, setInitialLoad] = useState(false); // ✅ NEW STATE
 
   useEffect(() => {
+    // ✅ Trigger fade-in on mount
+    setInitialLoad(true);
+
     const interval = setInterval(() => {
       setFadeClass("fade-out");
 
@@ -37,7 +41,7 @@ function Hero() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         marginBottom: 0,
-        paddingButtom: 0,
+        paddingBottom: 0, // typo fixed from 'paddingButtom'
       }}
     >
       {/* Dark overlay */}
@@ -52,6 +56,7 @@ function Hero() {
 
       {/* Centered Text */}
       <div
+        className={`greeting-wrapper ${initialLoad ? "initial-fade-in" : ""}`} // ✅ Apply class on load
         style={{
           position: "absolute",
           inset: 0,
@@ -59,6 +64,8 @@ function Hero() {
           alignItems: "center",
           justifyContent: "center",
           zIndex: 2,
+          opacity: 0,
+          animation: initialLoad ? "fadeInHero 1s ease-out forwards" : "none", // ✅ Fade once on page load
         }}
       >
         <h1 className={`greeting ${fadeClass}`}>
@@ -89,6 +96,18 @@ function Hero() {
 
         .fade-out {
           opacity: 0;
+        }
+
+        /* ✅ Initial wrapper fade-in */
+        @keyframes fadeInHero {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </div>
