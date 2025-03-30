@@ -2,6 +2,7 @@ import {Element } from 'react-scroll';
 import Hero from './components/Hero';
 import NavBar from './components/NavBar';
 import About from './components/About';
+//import Footer from './components/Footer';
 //import Projects from './components/Projects';
 //import Contact from './components/Contact';
 
