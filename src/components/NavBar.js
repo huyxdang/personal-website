@@ -49,7 +49,7 @@ function Navbar() {
             fontFamily: "sans-serif",
             fontSize: "1.5rem",
             fontWeight: "600",
-            color: scrolled ? "#7CFC7C" : "white", // dynamic logo color
+            color: scrolled ? "#7CFC7C" : "beige", // dynamic logo color
             transition: "color 0.3s ease",
           }}
         >
@@ -82,7 +82,7 @@ function Navbar() {
               offset={-80}
               style={{
                 ...linkStyle,
-                color: "white",
+                color: "beige",
                 transition: "color 0.3s ease",
               }}
             >
