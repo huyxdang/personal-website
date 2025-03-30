@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleToggle = () => setIsOpen(!isOpen);
   const handleClose = () => setIsOpen(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > window.innerHeight * 0.8);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
@@ -14,14 +23,16 @@ function Navbar() {
         top: 0,
         left: 0,
         width: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.4)", // 👈 new background
-        backdropFilter: "blur(0px)", // 👈 optional blur effect
+        backgroundColor: scrolled
+          ? "rgba(0, 0, 0, 0.85)"
+          : "rgba(0, 0, 0, 0.4)",
+        backdropFilter: scrolled ? "blur(5px)" : "none",
         fontFamily: "monospace",
         color: "white",
         zIndex: 10,
+        transition: "background-color 0.3s ease",
       }}
     >
-      {/* Centered container */}
       <div
         style={{
           maxWidth: "1200px",
@@ -38,7 +49,8 @@ function Navbar() {
             fontFamily: "sans-serif",
             fontSize: "1.5rem",
             fontWeight: "600",
-            color: "beige",
+            color: scrolled ? "#7CFC7C" : "white", // dynamic logo color
+            transition: "color 0.3s ease",
           }}
         >
           &lt; hd /&gt;
@@ -49,9 +61,9 @@ function Navbar() {
           onClick={handleToggle}
           className="hamburger"
           style={{
-            fontSize: "1.5rem",
+            fontSize: "1.8rem",
             cursor: "pointer",
-            display: "none",
+            color: "white",  // so it's visible on dark background
           }}
         >
           ☰
@@ -59,22 +71,29 @@ function Navbar() {
 
         {/* Nav links */}
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
-          {[".about", ".skills", ".projects", ".contact"].map((section) => (
+          {["about", "skills", "projects", "contact"].map((section) => (
             <Link
               key={section}
               to={section}
               smooth={true}
               duration={500}
               onClick={handleClose}
-              style={linkStyle}
+              spy={true}
+              offset={-80}
+              style={{
+                ...linkStyle,
+                color: "white",
+                transition: "color 0.3s ease",
+              }}
             >
+              <span style={{ color: scrolled ? "#7CFC7C" : "white" }}>.</span>
               {section} ()
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Inline styles */}
+      {/* Embedded styles */}
       <style>{`
         .nav-links {
           display: flex;
@@ -100,7 +119,6 @@ function Navbar() {
             padding: 1rem 2rem;
             border-radius: 8px;
             display: none;
-            color: beige;
           }
 
           .nav-links.open {

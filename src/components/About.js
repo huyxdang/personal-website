@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import GreenLink from "./GreenLink";
+import WhiteLink from "./WhiteLink";
 
 function About() {
   const bulletItemStyle = {
@@ -10,10 +11,26 @@ function About() {
     lineHeight: "1.6",
   };
 
+  const aboutRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (aboutRef.current) observer.observe(aboutRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="about"
+      ref={aboutRef}
       style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(30px)",
+        transition: "opacity 0.8s ease, transform 0.8s ease",
         minHeight: "100vh",
         backgroundColor: "#111",
         color: "#ccc",
@@ -76,24 +93,13 @@ function About() {
             predicting and visualizing hailstorms ❄️
           </li>
           <li style={bulletItemStyle}>
-            ▹ I won <span style={{ color: "#7CFC7C" }}>~USD 13k</span> to fund a{" "}
-            <span style={{ color: "#7CFC7C" }}>tech startup</span> using
-            computer vision 🤖
+            ▹ I won <GreenLink href="https://www.linkedin.com/feed/update/urn:li:activity:7219378993496477696/">~USD 13k for NaviBuddy</GreenLink>, a tech startup using Computer Vision to aid the visually-impaired 🤖
           </li>
           <li style={bulletItemStyle}>
-            ▹ I'm interested in topics such as LLMs (Large Language Models), AI interpretability, and education!
+            ▹ I'm interested in topics like LLMs (Large Language Models), <WhiteLink href="https://www.anthropic.com/news/tracing-thoughts-language-model">AI Interpretability</WhiteLink>, and Education 📚
           </li>
           <li style={bulletItemStyle}>
-            ▹ I enjoy Mexican, Italian, and Japanese food   - and love {" "}
-            <a
-              href="https://amthucbactrungnam.wixsite.com/blog/single-post/cach-lam-banh-mi-pate-thap-cam"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Bánh Mỳ's
-            </a>{" "}
-            🥖
+            ▹ I enjoy Mexican, Italian, and Japanese food - and love <WhiteLink href="https://amthucbactrungnam.wixsite.com/blog/single-post/cach-lam-banh-mi-pate-thap-cam"> Banh My</WhiteLink>'s 🥖
           </li>
         </ul>
       </div>
