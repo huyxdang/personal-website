@@ -3,9 +3,10 @@ import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Container from "./components/Container";
+import Experiences from "./components/Experiences";
 //import Footer from './components/Footer';
-//import Projects from './components/Projects';
-//import Contact from './components/Contact';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -25,6 +26,18 @@ function App() {
 
       <Container name="about">
         <About />
+      </Container>
+
+      <Container name="experiences">
+        <Experiences />
+      </Container>
+
+      <Container name="projects">
+        <Projects />
+      </Container>
+
+      <Container name="contact">
+        <Contact />
       </Container>
     </div>
   );

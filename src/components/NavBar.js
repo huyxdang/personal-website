@@ -71,7 +71,7 @@ function Navbar() {
 
         {/* Nav links */}
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
-          {["about", "skills", "projects", "contact"].map((section) => (
+          {["about", "experiences", "projects", "contact"].map((section) => (
             <Link
               key={section}
               to={section}
