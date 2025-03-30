@@ -18,7 +18,7 @@ function About() {
       }}
     >
       <div>
-        <p>Hello Muoi 🙎‍♀️</p>
+        <p>Hello 👋</p>
         <p>Welcome to my page!</p>
         <p> I just started working on this a few hours ago, but what do you think? </p>
       </div>
