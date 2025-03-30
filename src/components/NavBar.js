@@ -82,8 +82,9 @@ function Navbar() {
               offset={-80}
               style={{
                 ...linkStyle,
-                color: "beige",
+                color: scrolled ? "white" : "beige",
                 transition: "color 0.3s ease",
+                
               }}
             >
               <span style={{ color: scrolled ? "#7CFC7C" : "white" }}>.</span>
