@@ -8,64 +8,71 @@ function Navbar() {
   const handleClose = () => setIsOpen(false);
 
   return (
-<nav
-  style={{
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.4)", // 👈 new background
-    backdropFilter: "blur(0px)",              // 👈 optional blur effect
-    fontFamily: "monospace",
-    color: "white",
-    zIndex: 10,
-  }}
->
-  {/* Centered container */}
-  <div
-    style={{
-      maxWidth: "1200px",
-      margin: "0 auto",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: "1.5rem 2rem",
-    }}
-  >
-    {/* Logo */}
-    <div style={{ fontFamily: "sans-serif", fontSize: "1.5rem", fontWeight: "bold" }}>
-      &lt; hd /&gt;
-    </div>
-
-    {/* Hamburger */}
-    <div
-      onClick={handleToggle}
-      className="hamburger"
+    <nav
       style={{
-        fontSize: "1.5rem",
-        cursor: "pointer",
-        display: "none",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.4)", // 👈 new background
+        backdropFilter: "blur(0px)", // 👈 optional blur effect
+        fontFamily: "monospace",
+        color: "white",
+        zIndex: 10,
       }}
     >
-      ☰
-    </div>
-
-    {/* Nav links */}
-    <div className={`nav-links ${isOpen ? "open" : ""}`}>
-      {[".about", ".skills", ".projects", ".contact"].map((section) => (
-        <Link
-          key={section}
-          to={section}
-          smooth={true}
-          duration={500}
-          onClick={handleClose}
-          style={linkStyle}
+      {/* Centered container */}
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "1.5rem 2rem",
+        }}
+      >
+        {/* Logo */}
+        <div
+          style={{
+            fontFamily: "sans-serif",
+            fontSize: "1.5rem",
+            fontWeight: "600",
+            color: "beige",
+          }}
         >
-          {section} ()
-        </Link>
-      ))}
-    </div>
-  </div>
+          &lt; hd /&gt;
+        </div>
+
+        {/* Hamburger */}
+        <div
+          onClick={handleToggle}
+          className="hamburger"
+          style={{
+            fontSize: "1.5rem",
+            cursor: "pointer",
+            display: "none",
+          }}
+        >
+          ☰
+        </div>
+
+        {/* Nav links */}
+        <div className={`nav-links ${isOpen ? "open" : ""}`}>
+          {[".about", ".skills", ".projects", ".contact"].map((section) => (
+            <Link
+              key={section}
+              to={section}
+              smooth={true}
+              duration={500}
+              onClick={handleClose}
+              style={linkStyle}
+            >
+              {section} ()
+            </Link>
+          ))}
+        </div>
+      </div>
 
       {/* Inline styles */}
       <style>{`
@@ -93,6 +100,7 @@ function Navbar() {
             padding: 1rem 2rem;
             border-radius: 8px;
             display: none;
+            color: beige;
           }
 
           .nav-links.open {

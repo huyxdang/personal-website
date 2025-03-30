@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import ScrollButton from './ScrollButton';
+import ScrollButton from "./ScrollButton";
 
-const greetings = [
-  "xin chào", "hello", "bonjour", "hola", "こんにちは", "안녕하세요"
-];
+const greetings = ["xin chào", "hey", "你好", "bonjour", "hola"];
 
 function Hero() {
   const [currentGreeting, setCurrentGreeting] = useState(0);
@@ -38,6 +36,8 @@ function Hero() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        marginBottom: 0,
+        paddingButtom: 0,
       }}
     >
       {/* Dark overlay */}

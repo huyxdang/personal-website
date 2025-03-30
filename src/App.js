@@ -1,31 +1,33 @@
-import {Element } from 'react-scroll';
-import Hero from './components/Hero';
-import NavBar from './components/NavBar';
-import About from './components/About';
-import FourierDrawer from './components/FourierDrawer';
+import { Element } from "react-scroll";
+import Hero from "./components/Hero";
+import NavBar from "./components/NavBar";
+import About from "./components/About";
+import Container from "./components/Container";
 //import Footer from './components/Footer';
 //import Projects from './components/Projects';
 //import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="App">
+    <div
+      style={{ backgroundColor: "#111", minHeight: "100vh" }}
+      className="App"
+    >
       {/* Navigation Bar */}
       <Element name="nav-bar">
-        <NavBar/>
+        <NavBar />
       </Element>
 
       {/* Sections with names for react-scroll */}
       <Element name="hero">
-        <Hero/>
+        <Hero />
       </Element>
 
-      <Element name="about">
-        <About/>
-      </Element>
+      <Container name="about">
+        <About />
+      </Container>
     </div>
   );
 }
-
 
 export default App;
