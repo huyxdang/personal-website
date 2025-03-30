@@ -60,8 +60,7 @@ function Contact() {
           Don't like my website? Don't like my work?
         </p>
 
-        <p style={{ fontSize: "1rem", color: "#ccc", marginBottom: "1rem", 
-        textDecoration: "underline", textUnderlineOffset: "4px" }}>
+        <p style={{ fontSize: "1rem", color: "#ccc", marginBottom: "1rem", fontWeight: "bold" }}>
           Don't even like me as a person?
         </p>
 
