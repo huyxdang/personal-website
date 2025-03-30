@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Container from "./components/Container";
 import Experiences from "./components/Experiences";
-//import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 
@@ -38,6 +38,10 @@ function App() {
 
       <Container name="contact">
         <Contact />
+      </Container>
+
+      <Container name="footer">
+        <Footer/>
       </Container>
     </div>
   );

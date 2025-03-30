@@ -30,7 +30,13 @@ function Footer() {
       </div>
 
       <p>
-        <a href="https://github.com/huyxdang"> Built with ❤️ by Huy Dang  </a>
+        <a 
+          href="https://github.com/huyxdang" 
+          style={{          
+          position: "relative",
+          color: "white",
+          textDecoration: "none",
+          fontWeight: "inherit",}}> Built with ❤️ by Huy Dang  </a>
       </p>
     </footer>
   );
