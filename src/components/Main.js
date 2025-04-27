@@ -119,6 +119,14 @@ function About() {
           {isPlaying ? "⏸ Pause" : "▶ Play Music"}
         </button>
       </div>
+
+      <div style={{ marginTop: "4rem", textAlign: "center" }}> 
+        <h4 style={{ fontSize: "1.5rem", marginBottom: "1rem", fontWeight: 400, color: "#999999" }}> 
+            --(Work in progress !)--
+        </h4> 
+      </div>
+
+      
     </section>
   );
 }
