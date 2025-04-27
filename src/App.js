@@ -1,48 +1,18 @@
-import { Element } from "react-scroll";
-import Hero from "./components/Hero";
-import NavBar from "./components/NavBar";
-import About from "./components/About";
-import Container from "./components/Container";
-import Experiences from "./components/Experiences";
-import Footer from './components/Footer';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Main from "./components/Main";
+import NavBar from "./components/NavBar"
 
 function App() {
   return (
     <div
-      style={{ backgroundColor: "#111", minHeight: "100vh" }}
-      className="App"
+      style={{ backgroundColor: "#fefefa", minHeight: "100vh" }}
+      className="Main"
     >
-      {/* Navigation Bar */}
-      <Element name="nav-bar">
-        <NavBar />
-      </Element>
-
       {/* Sections with names for react-scroll */}
-      <Element name="hero">
-        <Hero />
-      </Element>
 
-      <Container name="about">
-        <About />
-      </Container>
+    <div className="main">
+        <Main />
+    </div>
 
-      <Container name="experiences">
-        <Experiences />
-      </Container>
-
-      <Container name="projects">
-        <Projects />
-      </Container>
-
-      <Container name="contact">
-        <Contact />
-      </Container>
-
-      <Container name="footer">
-        <Footer/>
-      </Container>
     </div>
   );
 }
