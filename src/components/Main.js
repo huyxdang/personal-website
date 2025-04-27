@@ -72,13 +72,13 @@ function About() {
 
         {/* Right: Text */}
         <div style={{ flex: 1, paddingLeft: isMobile ? "0" : "2rem" }}>
-          <h3 style={{ fontSize: isMobile? "2 rem" : "2.5rem", marginBottom: "1rem", fontWeight: 600 }}>
+          <h3 style={{ fontSize: isMobile? "1.75rem" : "2.5rem", marginBottom: "1rem", fontWeight: 600 }}>
             Hey, I'm Huy{" "}
-            <span style={{ fontWeight: 100, fontSize: "2.5rem", color: "#999999" }}>
+            <span style={{ fontWeight: 100, fontSize: isMobile? "1.75rem" : "2.5rem", color: "#999999" }}>
               //hwee
             </span>
           </h3>
-          <h5 style={{ fontSize: "1.5rem", lineHeight: "1.5", fontWeight: 300 }}>
+          <h5 style={{ fontSize: "1.25rem", lineHeight: "1.5", fontWeight: 300 }}>
             I enjoy bridging{" "}
             <span style={{ textDecoration: "underline" }}>technology</span>{" "}
             and{" "}
@@ -89,7 +89,7 @@ function About() {
 
       {/* Bottom Part: Music Section */}
       <div style={{ marginTop: "4rem", textAlign: "center" }}>
-        <p style={{ fontSize: isMobile? "1.0 rem":"1.2rem", fontWeight: 500, marginBottom: "1rem" }}>
+        <p style={{ fontSize: isMobile? "1.1rem":"1.2rem", fontWeight: 500, marginBottom: "1rem" }}>
           Enjoy some jazz while you're here :)
         </p>
 
