@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 function About() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -15,6 +16,14 @@ function About() {
     }
     setIsPlaying(!isPlaying);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section
@@ -37,28 +46,32 @@ function About() {
       <div
         style={{
           display: "flex",
+          flexDirection: isMobile ? "column" : "row", // 👈 Responsive direction
           alignItems: "center",
           justifyContent: "center",
           maxWidth: "1200px",
           width: "100%",
+          gap: isMobile ? "2rem" : "0rem", // spacing between image and text
+          textAlign: isMobile ? "center" : "left", // center-align text on mobile
         }}
       >
         {/* Left: Image */}
-        <div style={{ flex: 1, textAlign: "center" }}>
+        <div style={{ flex: 1 }}>
           <img
             src={`${process.env.PUBLIC_URL}/headshot.png`}
             alt="Huy Dang"
             style={{
               width: "80%",
               maxWidth: "350px",
-              borderRadius: "12px",
+              borderRadius: "8px",
               objectFit: "cover",
+              margin: isMobile ? "0 auto" : "0 0 0 3rem", // center image on mobile
             }}
           />
         </div>
 
         {/* Right: Text */}
-        <div style={{ flex: 1, paddingLeft: "2rem" }}>
+        <div style={{ flex: 1, paddingLeft: isMobile ? "0" : "2rem" }}>
           <h3 style={{ fontSize: "2.5rem", marginBottom: "1rem", fontWeight: 600 }}>
             Hey, I'm Huy{" "}
             <span style={{ fontWeight: 100, fontSize: "2.5rem", color: "#999999" }}>
@@ -96,15 +109,15 @@ function About() {
             fontFamily: "'Lexend Deca', sans-serif",
             fontSize: "1.2rem",
             padding: "0.75rem 1.5rem",
-            borderRadius: "999px", // pill shape
+            borderRadius: "999px",
             cursor: "pointer",
             transition: "background-color 0.3s",
-      }}
-        onMouseOver={e => e.target.style.backgroundColor = "#f0ece6"}
-        onMouseOut={e => e.target.style.backgroundColor = "#f9f6f1"}
-      >
-        {isPlaying ? "⏸ Pause" : "▶ Play Music"}
-      </button>
+          }}
+          onMouseOver={e => e.target.style.backgroundColor = "#f0ece6"}
+          onMouseOut={e => e.target.style.backgroundColor = "#f9f6f1"}
+        >
+          {isPlaying ? "⏸ Pause" : "▶ Play Music"}
+        </button>
       </div>
     </section>
   );
