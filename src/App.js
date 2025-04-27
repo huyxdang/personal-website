@@ -1,16 +1,20 @@
 import Main from "./components/Main";
-import NavBar from "./components/NavBar"
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div
-      style={{ backgroundColor: "#fefefa", minHeight: "100vh" }}
+      style={{ backgroundColor: "#f9f6f1", minHeight: "100vh" }}
       className="Main"
     >
       {/* Sections with names for react-scroll */}
 
     <div className="main">
         <Main />
+    </div>
+
+    <div className="footer">
+      <Footer />
     </div>
 
     </div>

@@ -4,40 +4,29 @@ function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: "#111",
-        color: "#ccc",
+        backgroundColor: "#f9f6f1",
+        color: "#3b2f2f",
         padding: "2rem",
         textAlign: "center",
-        fontFamily: "monospace",
+        fontFamily: "'Lexend Deca', sans-serif",
         fontSize: "0.9rem",
-        borderTop: "1px solid #333",
+        borderTop: "1px solid #3b2f2f",
         marginTop: "5rem"
       }}
     >
-      <div style={{ marginBottom: "1rem" }}>
-        <a
-          href="https://github.com/huyxdang"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: "#ccc",
-            marginRight: "1rem",
-            fontSize: "1.5rem",
-            textDecoration: "none"
-          }}
-        >
-        </a>
-      </div>
 
       <p>
         <a 
-          href="https://github.com/huyxdang" 
+          href="https://github.com/huyxdang"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{          
+          color: "#3b2f2f",
           position: "relative",
-          color: "white",
           textDecoration: "none",
-          fontWeight: "inherit",}}> Built with ❤️ by Huy Dang  </a>
+          fontWeight: "inherit",}}> Built with 🔥 by Huy Dang  </a>
       </p>
+
     </footer>
   );
 }
