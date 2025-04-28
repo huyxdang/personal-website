@@ -63,7 +63,7 @@ function About() {
             style={{
               width: "80%",
               maxWidth: "350px",
-              borderRadius: "8px",
+              borderRadius: "15px",
               objectFit: "cover",
               margin: isMobile ? "0 auto" : "0 0 0 3rem", // center image on mobile
             }}
