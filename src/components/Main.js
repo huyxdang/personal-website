@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import Link from "./Link";
 
 function About() {
   const audioRef = useRef(null);
@@ -83,6 +84,12 @@ function About() {
             <span style={{ textDecoration: "underline" }}>technology</span>{" "}
             and{" "}
             <span style={{ textDecoration: "underline" }}>social impacts</span>.
+          </h5>
+
+          <h5 style={{ fontSize: "1rem", lineHeight: "1", fontWeight: 300}}>
+            Interests: <Link href="https://www.anthropic.com/research/mapping-mind-language-model">AI Safety</Link>,
+            LLMs, {" "}
+            <Link href="https://deepmind.google/discover/blog/genie-2-a-large-scale-foundation-world-model/">World Models</Link>, and Tech Innovation in Vietnam.
           </h5>
         </div>
       </div>

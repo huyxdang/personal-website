@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import GreenLink from "./GreenLink";
-import WhiteLink from "./WhiteLink";
+import WhiteLink from "./Link";
 
 function Projects() {
     const projRef = useRef(null);

@@ -14,7 +14,7 @@ function WhiteLink({ href, children }) {
       <style>{`
         .white-link {
           position: relative;
-          color: white;
+          color: #3b2f2f;
           text-decoration: none;
           font-weight: inherit;
         }
@@ -26,7 +26,7 @@ function WhiteLink({ href, children }) {
           bottom: -2px;
           width: 0%;
           height: 1px;
-          background-color: white;
+          background-color: #3b2f2f;
           transition: width 0.3s ease-in-out;
         }
 

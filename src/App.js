@@ -13,10 +13,6 @@ function App() {
         <Main />
     </div>
 
-    <div className="footer">
-      <Footer />
-    </div>
-
     </div>
   );
 }
