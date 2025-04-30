@@ -31,7 +31,7 @@ function About() {
       id="about"
       style={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: "83vh",
         backgroundColor: "#f9f6f1",
         display: "flex",
         flexDirection: "column",
@@ -91,16 +91,12 @@ function About() {
               </span>
             </h1>
             <h3 style={{ fontSize: "1.25rem", lineHeight: "1.5", fontWeight: 300, marginBottom: "1rem" }}>
-              I enjoy bridging{" "}
-              <span style={{ textDecoration: "underline" }}>technology</span>{" "}
-              and{" "}
-              <span style={{ textDecoration: "underline" }}>social impacts</span>.
+              I'm interested in technology and social impacts.
             </h3>
 
             <h4 style={{ fontSize: "1rem", lineHeight: "1.4", fontWeight: 300, marginBottom: "1.5rem" }}>
-              Interests: <Link href="https://www.anthropic.com/research/mapping-mind-language-model">AI Safety</Link>,
-              LLMs, {" "}
-              <Link href="https://deepmind.google/discover/blog/genie-2-a-large-scale-foundation-world-model/">World Models</Link>, and Tech Innovation in Vietnam.
+            I’m passionate about connecting cutting-edge technology with real-world social impact. 
+            My interests span AI Safety, Large Language Models, and World Models, with a particular focus on how these tools can drive innovation and improve lives in Vietnam. I believe in building technology not just because it’s possible—but because it’s meaningful.
             </h4>
             
             {/* Music Section */}

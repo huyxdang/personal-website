@@ -34,7 +34,7 @@ function Navbar() {
   const navItems = [
     { name: "Home", to: "home" },
     { name: "Blog", to: "blog" },
-    { name: "VN", to: "vn" },
+    { name: "Promises", to: "promises" },
 
   ];
 
@@ -58,24 +58,25 @@ function Navbar() {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           maxWidth: "1200px",
           margin: "0 auto",
         }}
       >
-        {/* Logo */}
-        <div style={{ fontSize: "1.5rem", fontWeight: 600, color: "#3b2f2f" }}>
-          <ScrollLink
-            to="home"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            style={{ cursor: "pointer" }}
-          >
-            HD.
-          </ScrollLink>
-        </div>
+      {/* 
+      <div style={{ fontSize: "1.5rem", fontWeight: 600, color: "#3b2f2f" }}>
+        <ScrollLink
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          style={{ cursor: "pointer" }}
+        >
+          HD.
+        </ScrollLink>
+      </div> 
+      */}
 
         {/* Desktop Menu */}
         {!isMobile && (
@@ -96,8 +97,8 @@ function Navbar() {
                 style={{
                   cursor: "pointer",
                   color: "#3b2f2f",
-                  fontWeight: 400,
-                  fontSize: "1rem",
+                  fontWeight: 500,
+                  fontSize: "1.25rem",
                   position: "relative",
                   transition: "opacity 0.3s",
                 }}
@@ -122,7 +123,7 @@ function Navbar() {
               padding: "0.5rem",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
+              justifyContent: "center",
               height: "20px",
               zIndex: 1001,
             }}
