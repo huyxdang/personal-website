@@ -1,3 +1,4 @@
+// Contact
 import React, { useRef, useEffect, useState } from "react";
 import GreenLink from "./GreenLink";
 
@@ -55,14 +56,6 @@ function Contact() {
             backgroundColor: "#333",
           }}
         />
-
-        <p style={{ fontSize: "1rem", color: "#ccc", marginBottom: "1rem" }}>
-          Don't like my website? Don't like my work?
-        </p>
-
-        <p style={{ fontSize: "1rem", color: "#ccc", marginBottom: "1rem", fontWeight: "bold" }}>
-          Don't even like me as a person?
-        </p>
 
         <h2 style={{marginTop:"3rem"}}> <GreenLink href="https://www.instagram.com/huy.dng_/">Reach out to me :)</GreenLink></h2>
         <h4 style={{marginTop:"0.5rem", marginBottom:"3rem"}}> (I'm always open to constructive feedback!)</h4>

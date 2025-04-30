@@ -1,140 +1,208 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const handleToggle = () => setIsOpen(!isOpen);
-  const handleClose = () => setIsOpen(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight * 0.8);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
     };
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  const navItems = [
+    { name: "Home", to: "home" },
+    { name: "Blog", to: "blog" },
+    { name: "VN", to: "vn" },
+
+  ];
 
   return (
     <nav
       style={{
         position: "fixed",
+        width: "100%",
         top: 0,
         left: 0,
-        width: "100%",
-        backgroundColor: scrolled
-          ? "rgba(0, 0, 0, 0.85)"
-          : "rgba(0, 0, 0, 0.4)",
-        backdropFilter: scrolled ? "blur(5px)" : "none",
-        fontFamily: "monospace",
-        color: "white",
-        zIndex: 10,
-        transition: "background-color 0.3s ease",
+        zIndex: 1000,
+        padding: scrolled ? "0.5rem 2rem" : "1rem 2rem",
+        backgroundColor: scrolled ? "rgba(249, 246, 241, 0.95)" : "transparent",
+        backdropFilter: scrolled ? "blur(8px)" : "none",
+        transition: "all 0.3s ease",
+        boxShadow: scrolled ? "0 2px 10px rgba(0, 0, 0, 0.05)" : "none",
+        fontFamily: "'Lexend Deca', sans-serif",
       }}
     >
       <div
         style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
           maxWidth: "1200px",
           margin: "0 auto",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "1.5rem 2rem",
         }}
       >
         {/* Logo */}
-        <div
-          style={{
-            fontFamily: "sans-serif",
-            fontSize: "1.5rem",
-            fontWeight: "600",
-            color: scrolled ? "#7CFC7C" : "beige", // dynamic logo color
-            transition: "color 0.3s ease",
-          }}
-        >
-          &lt; hd /&gt;
+        <div style={{ fontSize: "1.5rem", fontWeight: 600, color: "#3b2f2f" }}>
+          <ScrollLink
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            style={{ cursor: "pointer" }}
+          >
+            HD.
+          </ScrollLink>
         </div>
 
-        {/* Hamburger */}
-        <div
-          onClick={handleToggle}
-          className="hamburger"
-          style={{
-            fontSize: "1.8rem",
-            cursor: "pointer",
-            color: "white",  // so it's visible on dark background
-          }}
-        >
-          ☰
-        </div>
+        {/* Desktop Menu */}
+        {!isMobile && (
+          <div
+            style={{
+              display: "flex",
+              gap: "2.5rem",
+            }}
+          >
+            {navItems.map((item) => (
+              <ScrollLink
+                key={item.name}
+                to={item.to}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                style={{
+                  cursor: "pointer",
+                  color: "#3b2f2f",
+                  fontWeight: 400,
+                  fontSize: "1rem",
+                  position: "relative",
+                  transition: "opacity 0.3s",
+                }}
+                onMouseEnter={(e) => (e.target.style.opacity = 0.7)}
+                onMouseLeave={(e) => (e.target.style.opacity = 1)}
+                activeClass="active"
+              >
+                {item.name}
+              </ScrollLink>
+            ))}
+          </div>
+        )}
 
-        {/* Nav links */}
-        <div className={`nav-links ${isOpen ? "open" : ""}`}>
-          {["about", "experiences", "projects", "contact"].map((section) => (
-            <Link
-              key={section}
-              to={section}
-              smooth={true}
-              duration={500}
-              onClick={handleClose}
-              spy={true}
-              offset={-80}
+        {/* Mobile Menu Button */}
+        {isMobile && (
+          <button
+            onClick={toggleMenu}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: "0.5rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "20px",
+              zIndex: 1001,
+            }}
+          >
+            <div
               style={{
-                ...linkStyle,
-                color: scrolled ? "white" : "beige",
-                transition: "color 0.3s ease",
-                
+                width: "25px",
+                height: "2px",
+                backgroundColor: "#3b2f2f",
+                transition: "transform 0.3s, opacity 0.3s",
+                transform: menuOpen
+                  ? "rotate(45deg) translate(5px, 6px)"
+                  : "none",
               }}
-            >
-              <span style={{ color: scrolled ? "#7CFC7C" : "white" }}>.</span>
-              {section} ()
-            </Link>
-          ))}
-        </div>
+            ></div>
+            <div
+              style={{
+                width: "25px",
+                height: "2px",
+                backgroundColor: "#3b2f2f",
+                opacity: menuOpen ? 0 : 1,
+                transition: "opacity 0.3s",
+              }}
+            ></div>
+            <div
+              style={{
+                width: "25px",
+                height: "2px",
+                backgroundColor: "#3b2f2f",
+                transition: "transform 0.3s",
+                transform: menuOpen
+                  ? "rotate(-45deg) translate(5px, -6px)"
+                  : "none",
+              }}
+            ></div>
+          </button>
+        )}
+
+        {/* Mobile Menu */}
+        {isMobile && menuOpen && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100vh",
+              backgroundColor: "rgba(249, 246, 241, 0.98)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "2rem",
+              zIndex: 1000,
+            }}
+          >
+            {navItems.map((item) => (
+              <ScrollLink
+                key={item.name}
+                to={item.to}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                onClick={toggleMenu}
+                style={{
+                  cursor: "pointer",
+                  color: "#3b2f2f",
+                  fontWeight: 500,
+                  fontSize: "1.5rem",
+                }}
+              >
+                {item.name}
+              </ScrollLink>
+            ))}
+          </div>
+        )}
       </div>
-
-      {/* Embedded styles */}
-      <style>{`
-        .nav-links {
-          display: flex;
-          gap: 2rem;
-        }
-
-        .hamburger {
-          display: none;
-        }
-
-        @media (max-width: 768px) {
-          .hamburger {
-            display: block;
-          }
-
-          .nav-links {
-            position: absolute;
-            top: 70px;
-            right: 2rem;
-            background-color: rgba(0, 0, 0, 0.85);
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            display: none;
-          }
-
-          .nav-links.open {
-            display: flex;
-          }
-        }
-      `}</style>
     </nav>
   );
 }
-
-const linkStyle = {
-  color: "white",
-  textDecoration: "none",
-  cursor: "pointer",
-};
 
 export default Navbar;
