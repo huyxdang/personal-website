@@ -4,6 +4,7 @@ function About() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -12,7 +13,9 @@ function About() {
     if (isPlaying) {
       audio.pause();
     } else {
-      audio.play();
+      audio.play().catch(error => {
+        console.error("Audio playback error:", error);
+      });
     }
     setIsPlaying(!isPlaying);
   };
@@ -20,9 +23,24 @@ function About() {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+      setWindowWidth(window.innerWidth);
     };
+    
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Handle audio end event
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    
+    const handleAudioEnd = () => setIsPlaying(false);
+    audio.addEventListener('ended', handleAudioEnd);
+    
+    return () => {
+      audio.removeEventListener('ended', handleAudioEnd);
+    };
   }, []);
 
   return (
@@ -30,7 +48,7 @@ function About() {
       id="about"
       style={{
         width: "100%",
-        minHeight: "80vh",
+        minHeight: "100vh", // Changed from 80vh to 100vh for full screen height
         backgroundColor: "#f9f6f1",
         display: "flex",
         flexDirection: "column",
@@ -39,6 +57,7 @@ function About() {
         boxSizing: "border-box",
         fontFamily: "'Lexend Deca', sans-serif",
         color: "#3b2f2f",
+        padding: isMobile ? "6rem 1rem 2rem" : "6rem 2rem 3rem", // Add top padding for fixed navbar
       }}
     >
       {/* Main Content Container */}
@@ -48,6 +67,8 @@ function About() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          maxWidth: "1000px",
+          width: "100%",
         }}
       >
         {/* Top Part: Image and Text */}
@@ -58,39 +79,79 @@ function About() {
             alignItems: isMobile ? "center" : "flex-start",
             justifyContent: "center",
             width: "100%",
-            gap: isMobile ? "1.5rem" : "2rem", // Reduced gap for better connection
+            gap: isMobile ? "2rem" : "3rem",
             textAlign: isMobile ? "center" : "left",
           }}
         >
           {/* Left: Image */}
-          <div style={{ flex: isMobile ? "unset" : "0.8" }}>
+          <div 
+            style={{ 
+              flex: isMobile ? "unset" : "0.8",
+              width: isMobile ? "100%" : "auto",
+              display: "flex",
+              justifyContent: isMobile ? "center" : "flex-start"
+            }}
+          >
             <img
               src={`${process.env.PUBLIC_URL}/headshot.png`}
               alt="Huy Dang"
               style={{
-                width: isMobile ? "60%" : "73%", // Increased image size on desktop
+                width: isMobile ? (windowWidth < 480 ? "80%" : "60%") : "73%",
                 borderRadius: "50px",
                 objectFit: "cover",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)", // Subtle shadow for depth
+                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
               }}
             />
           </div>
 
           {/* Right: Text */}
-          <div style={{ flex: isMobile ? "unset" : "1.2"}}>
-            <h1 style={{ fontSize: isMobile ? "1.75rem" : "2.5rem", marginBottom: "0.75rem", fontWeight: 600 }}>
-              Huy X. Dang{" "}
-              <span style={{ fontWeight: 100, fontSize: isMobile ? "1.75rem" : "2.5rem", color: "#999999" }}>
+          <div 
+            style={{ 
+              flex: isMobile ? "unset" : "1.2",
+              width: isMobile ? "100%" : "auto"
+            }}
+          >
+            <h1 
+              style={{ 
+                fontSize: windowWidth < 480 ? "1.5rem" : (isMobile ? "1.75rem" : "2.5rem"), 
+                marginBottom: "0.75rem", 
+                fontWeight: 600 
+              }}
+            >
+              hey, i'm Huy {" "}
+              <span 
+                style={{ 
+                  fontWeight: 100, 
+                  fontSize: windowWidth < 480 ? "1.5rem" : (isMobile ? "1.75rem" : "2.5rem"), 
+                  color: "#999999" 
+                }}
+              >
                 #hwee
               </span>
             </h1>
-            <h3 style={{ fontSize: "1.2rem", lineHeight: "1.5", fontWeight: 300, marginBottom: "1rem" }}>
-              Bridging <span style={{textDecoration: "underline"}}>technology</span> and <span style={{textDecoration: "underline"}}>social impacts</span>.
+            
+            <h3 
+              style={{ 
+                fontSize: windowWidth < 480 ? "1.1rem" : "1.3rem", 
+                lineHeight: "1.5", 
+                fontWeight: 300, 
+                marginBottom: "1rem" 
+              }}
+            >
+              bridging <span style={{textDecoration: "underline"}}>technology</span> and <span style={{textDecoration: "underline"}}>social impacts</span>.
             </h3>
 
-            <h4 style={{ fontSize: "1rem", lineHeight: "1.4", fontWeight: 300, marginBottom: "1.5rem", color: "#333" }}>
-            I’m passionate about connecting cutting-edge technology with real-world social impact. 
-            My interests span AI Safety, Large Language Models, and World Models, with a particular focus on how these tools can drive innovation and improve lives in Vietnam. I believe in building technology not just because it’s possible—but because it’s meaningful.
+            <h4 
+              style={{ 
+                fontSize: windowWidth < 480 ? "0.95rem" : "1rem", 
+                lineHeight: "1.6", 
+                fontWeight: 300, 
+                marginBottom: "1.5rem", 
+                color: "#333" 
+              }}
+            >
+              I'm passionate about connecting cutting-edge technology with real-world social impact. 
+              My interests span AI Safety, Large Language Models, and World Models, with a particular focus on how these tools can drive innovation and improve lives in Vietnam. I believe in building technology not just because it's possible—but because it's meaningful.
             </h4>
             
             {/* Music Section */}
@@ -99,7 +160,9 @@ function About() {
               alignItems: "center", 
               marginTop: "0.5rem",
               flexDirection: isMobile ? "column" : "row",
-              gap: "0.5rem"
+              gap: "0.75rem",
+              width: "100%",
+              justifyContent: isMobile ? "center" : "flex-start"
             }}>
 
               {/* Hidden native audio player */}
@@ -116,12 +179,14 @@ function About() {
                   border: "2px solid #3b2f2f",
                   color: "#3b2f2f",
                   fontFamily: "'Lexend Deca', sans-serif",
-                  fontSize: "0.9rem",
-                  padding: "0.5rem 1.25rem",
+                  fontSize: windowWidth < 480 ? "0.85rem" : "0.9rem",
+                  padding: windowWidth < 480 ? "0.4rem 1rem" : "0.5rem 1.25rem",
                   borderRadius: "999px",
                   cursor: "pointer",
                   transition: "all 0.3s",
                   whiteSpace: "nowrap",
+                  width: isMobile ? (windowWidth < 480 ? "80%" : "60%") : "auto",
+                  maxWidth: "200px",
                 }}
                 onMouseOver={e => {
                   e.target.style.backgroundColor = "#f0ece6";

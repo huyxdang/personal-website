@@ -4,7 +4,7 @@ function Hours() {
         id="about"
         style={{
           width: "100%",
-          minHeight: "83vh",
+          minHeight: "100vh",
           backgroundColor: "#f9f6f1",
           display: "flex",
           flexDirection: "column",

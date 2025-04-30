@@ -1,0 +1,3 @@
+- [ ]: Fix alignment 
+- [ ]: 10k hours 
+- [ ]: First Blog
