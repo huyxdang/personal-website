@@ -29,7 +29,7 @@ function Footer() {
           gap: "1.5rem",
           marginBottom: "1.5rem",
         }}>
-          <a href="https://linkedin.com/in/yourusername" 
+          <a href="https://www.linkedin.com/in/huy-x-dang-9b61671bb/" 
              target="_blank" 
              rel="noopener noreferrer"
              style={{
@@ -42,7 +42,7 @@ function Footer() {
           >
             <i className="fa-brands fa-linkedin"></i>
           </a>
-          <a href="https://github.com/yourusername" 
+          <a href="https://github.com/huyxdang" 
              target="_blank" 
              rel="noopener noreferrer"
              style={{
@@ -55,7 +55,7 @@ function Footer() {
           >
             <i className="fa-brands fa-github"></i>
           </a>
-          <a href="https://twitter.com/yourusername" 
+          <a href="https://x.com/xhuydng" 
              target="_blank" 
              rel="noopener noreferrer"
              style={{
@@ -68,7 +68,7 @@ function Footer() {
           >
             <i className="fa-brands fa-x-twitter"></i>
           </a>
-          <a href="mailto:your.email@example.com"
+          <a href="mailto:xhuydng@gmail.com"
              style={{
                color: "#3b2f2f",
                fontSize: "1.25rem",
