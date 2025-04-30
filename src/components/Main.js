@@ -138,7 +138,7 @@ function About() {
                   e.target.style.transform = "translateY(0)";
                 }}
               >
-                {isPlaying ? "⏸ Pause" : "▶ Play"}
+                {isPlaying ? "⏸ Pause" : "▶ Play Jazz"}
               </button>
             </div>
           </div>
