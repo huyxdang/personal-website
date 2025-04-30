@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import Link from "./Link";
 
 function About() {
   const audioRef = useRef(null);
@@ -31,13 +30,12 @@ function About() {
       id="about"
       style={{
         width: "100%",
-        minHeight: "83vh",
+        minHeight: "80vh",
         backgroundColor: "#f9f6f1",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "3rem 2rem",
         boxSizing: "border-box",
         fontFamily: "'Lexend Deca', sans-serif",
         color: "#3b2f2f",
@@ -50,8 +48,6 @@ function About() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          maxWidth: "1000px", // Reduced from 1200px for better proximity
-          width: "100%",
         }}
       >
         {/* Top Part: Image and Text */}
@@ -72,29 +68,27 @@ function About() {
               src={`${process.env.PUBLIC_URL}/headshot.png`}
               alt="Huy Dang"
               style={{
-                width: isMobile ? "50%" : "75%", // Increased image size on desktop
-                maxWidth: "300px",
-                borderRadius: "15px",
+                width: isMobile ? "60%" : "73%", // Increased image size on desktop
+                borderRadius: "50px",
                 objectFit: "cover",
-                margin: isMobile ? "0 auto" : "0", // Removed left margin
                 boxShadow: "0 4px 12px rgba(0,0,0,0.08)", // Subtle shadow for depth
               }}
             />
           </div>
 
           {/* Right: Text */}
-          <div style={{ flex: isMobile ? "unset" : "1.2", paddingLeft: isMobile ? "0" : "0" }}>
+          <div style={{ flex: isMobile ? "unset" : "1.2"}}>
             <h1 style={{ fontSize: isMobile ? "1.75rem" : "2.5rem", marginBottom: "0.75rem", fontWeight: 600 }}>
-              Hey, I'm Huy{" "}
+              Huy X. Dang{" "}
               <span style={{ fontWeight: 100, fontSize: isMobile ? "1.75rem" : "2.5rem", color: "#999999" }}>
-                //hwee
+                #hwee
               </span>
             </h1>
-            <h3 style={{ fontSize: "1.25rem", lineHeight: "1.5", fontWeight: 300, marginBottom: "1rem" }}>
-              I'm interested in technology and social impacts.
+            <h3 style={{ fontSize: "1.2rem", lineHeight: "1.5", fontWeight: 300, marginBottom: "1rem" }}>
+              Bridging <span style={{textDecoration: "underline"}}>technology</span> and <span style={{textDecoration: "underline"}}>social impacts</span>.
             </h3>
 
-            <h4 style={{ fontSize: "1rem", lineHeight: "1.4", fontWeight: 300, marginBottom: "1.5rem" }}>
+            <h4 style={{ fontSize: "1rem", lineHeight: "1.4", fontWeight: 300, marginBottom: "1.5rem", color: "#333" }}>
             I’m passionate about connecting cutting-edge technology with real-world social impact. 
             My interests span AI Safety, Large Language Models, and World Models, with a particular focus on how these tools can drive innovation and improve lives in Vietnam. I believe in building technology not just because it’s possible—but because it’s meaningful.
             </h4>
