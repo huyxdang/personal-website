@@ -1,6 +1,6 @@
 // Blog.js 
 
-import Container from "./Container";
+import Container from "../styles/Container";
 
 
 function Blog(){
@@ -11,6 +11,8 @@ function Blog(){
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
         alignItems: "center",
         padding: "3rem 2rem",
         fontFamily: "'Lexend Deca', sans-serif",

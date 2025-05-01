@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "./Container";
+import Container from "../styles/Container";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +20,7 @@ function Footer() {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        // outline: "1px solid red",
+        // outline: "1px solid red", // RED OUTLINE
       }}>
         {/* Social Media Links */}
         <div style={{

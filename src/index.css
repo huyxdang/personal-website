@@ -1,10 +1,81 @@
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #f9f6f1; /* match your section */
-  font-family: 'Lexend Deca', sans-serif; /* globally apply Lexend Deca */
+  background-color: #f9f6f1;
+  font-family: "Lexend Deca", sans-serif;
   box-sizing: border-box;
   overflow-x: hidden;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #3b2f2f;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3b2f2f;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #3b2f2f;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph and list styles */
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #3b2f2f;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #3b2f2f;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+a {
+  color: #3b2f2f;
+  text-decoration: underline;
+}
+
+.page-section {
+  min-height: 100vh;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  background-color: #f9f6f1;
+  color: #3b2f2f;
+}
+
+.intro-block {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.metrics-block {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.metric-value {
+  font-size: 1.25rem;
+  font-weight: 500;
 }

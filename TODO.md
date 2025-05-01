@@ -3,4 +3,5 @@
 - [ ]: First Blog
 - [X]: Mobile-friendly
 - [ ]: Scrolling issue in NavBar.js
+- [ ]: Vietnamese version
 

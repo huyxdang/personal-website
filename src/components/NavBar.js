@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
-import Container from "./Container";
+import Container from "../styles/Container";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -65,7 +65,7 @@ function Navbar() {
   const navItems = [
     { name: "About", to: "/" },
     { name: "Blog", to: "/blog" },
-    { name: "10,000", to: "/10000" },
+    { name: "10K-AI", to: "/10000" },
   ];
 
   return (

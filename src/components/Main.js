@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import Container from "./Container";
+import Container from "../styles/Container";
 
 function About() {
   const audioRef = useRef(null);
@@ -48,7 +48,7 @@ function About() {
     <section
       id="about"
       style={{
-        minHeight: "100vh",
+        minHeight: "80vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

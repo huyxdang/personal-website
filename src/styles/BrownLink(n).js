@@ -6,20 +6,20 @@ function WhiteLink({ href, children }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="white-link"
+      className="brown-link"
     >
       {children}
 
       {/* Inline styles for fallback, optional */}
       <style>{`
-        .white-link {
+        .brown-link {
           position: relative;
           color: #3b2f2f;
           text-decoration: none;
           font-weight: inherit;
         }
 
-        .white-link::after {
+        .brown-link::after {
           content: '';
           position: absolute;
           left: 0;
@@ -30,7 +30,7 @@ function WhiteLink({ href, children }) {
           transition: width 0.3s ease-in-out;
         }
 
-        .white-link:hover::after {
+        .brown-link:hover::after {
           width: 100%;
         }
       `}</style>
