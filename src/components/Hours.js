@@ -5,6 +5,8 @@ import BrownLink from "../styles/BrownLink";
 function Hours() {
   const [totalHours, setTotalHours] = useState(null);
   const [lastLogged, setLastLogged] = useState(null);
+  const [daysLeft, setDaysLeft] = useState(null);
+  const [avgWeek, setAvgWeek] = useState(null);
 
   useEffect(() => {
     const sheetId = "19LiUceHbFpiuuNgaGCONlaPZSCtsYm6xy1CW6vBMyj0";
@@ -12,10 +14,11 @@ function Hours() {
     const totalHoursRange = "Summary!B2";
     const lastLoggedRange = "Summary!B3";
     const totalLoggedDaysRange = "Summary!B4";
+    const avgWeekRange = "Summary!B5";
 
     const fetchData = async () => {
       try {
-        const [hoursRes, dateRes, totalRes] = await Promise.all([
+        const [hoursRes, dateRes, totalRes, avgRes] = await Promise.all([
           fetch(
             `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${totalHoursRange}?key=${apiKey}`
           ),
@@ -24,23 +27,45 @@ function Hours() {
           ),
           fetch(
             `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${totalLoggedDaysRange}?key=${apiKey}`
-          )
+          ),
+          fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${avgWeekRange}?key=${apiKey}`
+          ),
         ]);
 
         const hoursData = await hoursRes.json(); // Total Hours
         const dateData = await dateRes.json(); // Latest Update
-        const totaldaysData = await totalRes.json() // Total Days 
+        const totaldaysData = await totalRes.json(); // Total Days
+        const avgweekData = await avgRes.json(); // Average hours for last 7 days
 
-        const total = parseFloat(hoursData?.values?.[0]?.[0]);
+        const totalH = parseFloat(hoursData?.values?.[0]?.[0]);
         const last = dateData?.values?.[0]?.[0];
-        const totalDays = parseFloat(totaldaysData?.values?.[0]?.[0]);
+        const totalD = parseFloat(totaldaysData?.values?.[0]?.[0]);
+        const rawAvg = avgweekData?.values?.[0]?.[0];
+        const avgW =
+          rawAvg !== undefined && !isNaN(parseFloat(rawAvg))
+            ? parseFloat(parseFloat(rawAvg).toFixed(2))
+            : "N/A";
 
-        if (!isNaN(total)) setTotalHours(total);
+        // average hr perday, rounded to 2 d.p.
+        const averageHoursPerDay =
+          totalD > 0 ? parseFloat((totalH / totalD).toFixed(2)) : "N/A";
+
+        // # of days till 10k
+        const GOAL_HOURS = 10000;
+        const daysUntilFinish =
+          totalD != "N/A" ? Math.round(GOAL_HOURS / averageHoursPerDay) : "N/A";
+
+        if (!isNaN(totalH)) setTotalHours(totalH);
         if (last) setLastLogged(last);
+        if (daysUntilFinish !== "N/A") setDaysLeft(daysUntilFinish);
+        if (avgW) setAvgWeek(avgW);
       } catch (err) {
         console.error("Failed to fetch data:", err);
         setTotalHours("Error");
         setLastLogged("N/A");
+        setDaysLeft("N/A");
+        setAvgWeek("N/A");
       }
     };
 
@@ -58,22 +83,24 @@ function Hours() {
             building with AI.
           </h3>
           <p>
-          I've always been fascinated by how technology enables people to create 
-          meaningful impact with just a laptop and an internet connection. Now, 
-          with AI, the possibilities for dreaming and building have expanded 
-          even more. I believe in technology’s power to inspire and transform lives—
-          and to maximize the impact I can make, I want to be at the forefront of it all.
+            I've always been fascinated by how technology enables people to
+            create meaningful impact with just a laptop and an internet
+            connection. Now, with AI, the possibilities for dreaming and
+            building have expanded even more. I believe in technology’s power to
+            inspire and transform lives— and to maximize the impact I can make,
+            I want to be at the forefront of it all.
           </p>
           <p>
-            My undergrad ML courses gave me a strong theoretical foundation, but 
-            I realized that knowledge without practice comes and goes. This challenge 
-            is my way of staying committed to deep, hands-on learning — reimplementing
-            models, building tools, contributing to OS projects.
+            My undergrad ML courses gave me a strong theoretical foundation, but
+            I realized that knowledge without practice comes and goes. This
+            challenge is my way of staying committed to deep, hands-on learning
+            — reimplementing models, building tools, contributing to OS
+            projects.
           </p>
           <p>
             If you're reading this and the metrics below look suspiciously
-            stagnant, feel free to call me out. Soon, I’ll add a “nag me”
-            button where you can ping my inbox when progress stalls 😅.
+            stagnant, feel free to call me out. Soon, I’ll add a “nag me” button
+            where you can ping my inbox when progress stalls 😅.
           </p>
         </div>
 
@@ -81,22 +108,35 @@ function Hours() {
         <div className="metrics-block">
           <div>
             <h2>⏱ Hours Logged</h2>
-            <p className="metric-value" style={{textAlign: "center", fontSize: "1.4rem"}}>
+            <p
+              className="metric-value"
+              style={{ textAlign: "center", fontSize: "1.4rem" }}
+            >
               {totalHours !== null ? totalHours : "Loading..."}
             </p>
           </div>
           <div>
             <h2>🗓 Last Logged</h2>
-            <p className="metric-value" style={{textAlign: "center", fontSize: "1.4rem"}}>{lastLogged || "Loading..."}</p>
+            <p
+              className="metric-value"
+              style={{ textAlign: "center", fontSize: "1.4rem" }}
+            >
+              {lastLogged || "Loading..."}
+            </p>
           </div>
           <div>
-            <h2>⛰️ Days 'till 10k (given avg hr/day)</h2>
-            <p className="metric-value" style={{textAlign: "center", fontSize: "1.4rem"}}>{lastLogged || "Loading..."}</p>
+            <h2>⛰️ Avg. Hours (last 7 days)</h2>
+            <p
+              className="metric-value"
+              style={{ textAlign: "center", fontSize: "1.4rem" }}
+            >
+              {avgWeek || "Loading..."}
+            </p>
           </div>
         </div>
 
         <p>
-          Got other metrics I should track?{" "}
+          Got other metrics I should (or shouldn't) track?{" "}
           <BrownLink href="mailto:xhuydng@gmail.com">Let me know!</BrownLink>
         </p>
 
