@@ -117,11 +117,11 @@ function Hours() {
                 <div className="metric-progress">
                   <div
                     className="progress-bar"
-                    style={{ width: `${(1000 / 10000) * 100}%` }}
+                    style={{ width: `${(totalHours / 10000) * 100}%` }}
                   ></div>
                 </div>
                 <p className="metric-caption">
-                  {((999 / 10000) * 100).toFixed(1)}% of 10,000 hours
+                  {((totalHours / 10000) * 100).toFixed(1)}% of 10,000 hours
                 </p>
               </>
             )}
