@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import Container from "./Container";
 
@@ -25,7 +26,7 @@ function Navbar() {
         setMenuOpen(false);
       }
     };
-  
+
     handleResize(); // Run once on mount
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -34,7 +35,7 @@ function Navbar() {
   // Handle scroll for navbar styling
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 1);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -72,7 +73,7 @@ function Navbar() {
       style={{
         position: "fixed",
         width: "100%",
-        backgroundColor: scrolled ? "rgba(249, 246, 241, 0.95)" : "transparent",
+        backgroundColor: scrolled ? "lightcoral" : "rgba(249, 246, 241, 0.95)",
         backdropFilter: scrolled ? "blur(8px)" : "none",
         transition: "all 0.3s ease",
         boxShadow: scrolled ? "0 2px 10px rgba(0, 0, 0, 0.05)" : "none",
@@ -89,18 +90,19 @@ function Navbar() {
             alignItems: "center",
             width: "100%",
             padding: isMobile
-              ? scrolled
-                ? "0.5rem 0"
-                : "1rem 0"
+              ? "0.2rem 0"
               : scrolled
-              ? "0.5rem 0"
-              : "1.5rem 0",
-            outline: "1px solid red" // RED OUTLINE for debugging
+                ? "0.2rem 0"
+                : "1rem 0",
+            // outline: "1px solid red" // RED OUTLINE for debugging
           }}
         >
           {/* Logo or Brand Name */}
           <div
-            style={{ fontSize: isMobile ? "1.25rem" : "1.5rem", fontWeight: 600 }}
+            style={{
+              fontSize: isMobile ? "1.25rem" : "1.5rem",
+              fontWeight: 600,
+            }}
           >
             <Link
               to="/"
@@ -120,7 +122,14 @@ function Navbar() {
 
           {/* Desktop Nav Links */}
           {!isMobile && (
-            <div style={{ display: "flex", gap: "3rem", flexShrink: 1, overflow: "hidden" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: "3rem",
+                flexShrink: 1,
+                overflow: "hidden",
+              }}
+            >
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -157,48 +166,15 @@ function Navbar() {
                 border: "none",
                 cursor: "pointer",
                 padding: "0.5rem",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                height: "20px",
                 zIndex: 1001,
               }}
               aria-label="Toggle navigation"
-              aria-expanded={menuOpen}
             >
-              <div
-                style={{
-                  width: "25px",
-                  height: "2px",
-                  backgroundColor: "#3b2f2f",
-                  transform: menuOpen
-                    ? "rotate(45deg) translate(5px, 6px)"
-                    : "none",
-                  transition: "transform 0.3s ease",
-                  marginBottom: menuOpen ? "0" : "6px",
-                }}
-              ></div>
-              <div
-                style={{
-                  width: "25px",
-                  height: "2px",
-                  backgroundColor: "#3b2f2f",
-                  opacity: menuOpen ? 0 : 1,
-                  transition: "opacity 0.3s ease",
-                  marginBottom: menuOpen ? "0" : "6px",
-                }}
-              ></div>
-              <div
-                style={{
-                  width: "25px",
-                  height: "2px",
-                  backgroundColor: "#3b2f2f",
-                  transform: menuOpen
-                    ? "rotate(-45deg) translate(5px, -6px)"
-                    : "none",
-                  transition: "transform 0.3s ease",
-                }}
-              ></div>
+              {menuOpen ? (
+                <FiX size={24} /> // ← close icon when open
+              ) : (
+                <FiMenu size={24} />
+              )}{" "}
             </button>
           )}
         </div>

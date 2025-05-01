@@ -23,7 +23,7 @@ function Blog(){
           display: "flex",
           justifyContent: "center",
           width: "100%",
-          outline: "1px solid red" // RED OUTLINE 
+          // outline: "1px solid red" // RED OUTLINE 
         }}>
         <h1>Blog coming soon!</h1>
       </div>

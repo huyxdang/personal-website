@@ -6,11 +6,12 @@ function Footer() {
   
   return (
     <footer style={{
-      width: "100%",
+      backgroundColor: "#f9f6f1",
       borderTop: "1px solid rgba(59, 47, 47, 0.1)",
       fontFamily: "'Lexend Deca', sans-serif",
       color: "#3b2f2f",
       marginTop: "auto",
+      padding: "1.2rem 0",
     }}>
       <Container>
       <div style={{
@@ -19,7 +20,7 @@ function Footer() {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        outline: "1px solid red",
+        // outline: "1px solid red",
       }}>
         {/* Social Media Links */}
         <div style={{

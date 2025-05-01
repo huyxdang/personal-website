@@ -70,7 +70,7 @@ function About() {
             width: "100%",
             gap: isMobile ? "2rem" : "3rem",
             textAlign: isMobile ? "center" : "left",
-            outline: "1px solid red", // RED OUTLINE for debugging
+            // outline: "1px solid red", // RED OUTLINE for debugging
           }}
         >
           {/* Left: Image */}
