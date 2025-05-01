@@ -1,4 +1,5 @@
 import React from "react";
+import Container from "./Container";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,21 +7,19 @@ function Footer() {
   return (
     <footer style={{
       width: "100%",
-      padding: "2rem 0",
-      backgroundColor: "#f9f6f1",
       borderTop: "1px solid rgba(59, 47, 47, 0.1)",
       fontFamily: "'Lexend Deca', sans-serif",
       color: "#3b2f2f",
       marginTop: "auto",
     }}>
+      <Container>
       <div style={{
-        maxWidth: "1100px",
         margin: "0 auto",
-        padding: "0 2rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
+        outline: "1px solid red",
       }}>
         {/* Social Media Links */}
         <div style={{
@@ -90,8 +89,11 @@ function Footer() {
           © {currentYear} Huy Dang. All rights reserved.
         </p>
       </div>
+      </Container>
     </footer>
+    
   );
+  
 }
 
 export default Footer;

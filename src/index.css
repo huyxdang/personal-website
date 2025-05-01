@@ -6,4 +6,5 @@ html, body, #root {
   background-color: #f9f6f1; /* match your section */
   font-family: 'Lexend Deca', sans-serif; /* globally apply Lexend Deca */
   box-sizing: border-box;
+  overflow-x: hidden;
 }

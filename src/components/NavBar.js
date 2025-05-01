@@ -1,11 +1,11 @@
-// Navbar.jsx - Enhanced Mobile Responsiveness
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Container from "./Container";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false); // start with false
+  const [isMobile, setIsMobile] = useState(false);
   const menuRef = useRef();
   const location = useLocation();
 
@@ -26,8 +26,7 @@ function Navbar() {
       }
     };
   
-    handleResize(); // <-- run once on mount
-  
+    handleResize(); // Run once on mount
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -35,11 +34,7 @@ function Navbar() {
   // Handle scroll for navbar styling
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -69,7 +64,7 @@ function Navbar() {
   const navItems = [
     { name: "About", to: "/" },
     { name: "Blog", to: "/blog" },
-    { name: "hey", to: "/10000" },
+    { name: "10,000", to: "/10000" },
   ];
 
   return (
@@ -77,13 +72,6 @@ function Navbar() {
       style={{
         position: "fixed",
         width: "100%",
-        padding: isMobile
-          ? scrolled
-            ? "0.5rem 1rem"
-            : "1rem 1rem"
-          : scrolled
-          ? "0.5rem 2rem"
-          : "1.5rem 2rem",
         backgroundColor: scrolled ? "rgba(249, 246, 241, 0.95)" : "transparent",
         backdropFilter: scrolled ? "blur(8px)" : "none",
         transition: "all 0.3s ease",
@@ -93,122 +81,128 @@ function Navbar() {
         zIndex: 1000,
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "100%",
-          maxWidth: "1000px",
-          padding: "0 1rem",
-          margin: "0 auto",
-          boxSizing: "border-box",
-        }}
-      >
-        {/* Logo or Brand Name could go here */}
+      <Container>
         <div
-          style={{ fontSize: isMobile ? "1.25rem" : "1.5rem", fontWeight: 600 }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            padding: isMobile
+              ? scrolled
+                ? "0.5rem 0"
+                : "1rem 0"
+              : scrolled
+              ? "0.5rem 0"
+              : "1.5rem 0",
+            outline: "1px solid red" // RED OUTLINE for debugging
+          }}
         >
-          <Link
-            to="/"
-            style={{ textDecoration: "none", color: "inherit" }}
-            onMouseEnter={(e) => {
-              e.target.style.opacity = 0.7;
-              e.target.style.backgroundColor = "#B9FBC0";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.opacity = 1;
-              e.target.style.backgroundColor = "transparent";
-            }}
+          {/* Logo or Brand Name */}
+          <div
+            style={{ fontSize: isMobile ? "1.25rem" : "1.5rem", fontWeight: 600 }}
           >
-            Huy Dang
-          </Link>
-        </div>
-
-        {/* Desktop Nav Links */}
-        {!isMobile && (
-          <div style={{ display: "flex", gap: "3rem" }}>
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                style={{
-                  color: "#3b2f2f",
-                  fontWeight: 400,
-                  fontSize: "1.25rem",
-                  textDecoration: "none",
-                  position: "relative",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.opacity = 0.7;
-                  e.target.style.backgroundColor = "#B9FBC0";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.opacity = 1;
-                  e.target.style.backgroundColor = "transparent";
-                }}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              style={{ textDecoration: "none", color: "inherit" }}
+              onMouseEnter={(e) => {
+                e.target.style.opacity = 0.7;
+                e.target.style.backgroundColor = "#B9FBC0";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.opacity = 1;
+                e.target.style.backgroundColor = "transparent";
+              }}
+            >
+              Huy Dang
+            </Link>
           </div>
-        )}
 
-        {/* Mobile Menu Toggle */}
-        {isMobile && (
-          <button
-            onClick={toggleMenu}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              padding: "0.5rem",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              height: "20px",
-              zIndex: 1001,
-            }}
-            aria-label="Toggle navigation"
-            aria-expanded={menuOpen}
-          >
-            <div
+          {/* Desktop Nav Links */}
+          {!isMobile && (
+            <div style={{ display: "flex", gap: "3rem", flexShrink: 1, overflow: "hidden" }}>
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  style={{
+                    color: "#3b2f2f",
+                    fontWeight: 400,
+                    fontSize: "1.25rem",
+                    textDecoration: "none",
+                    position: "relative",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.opacity = 0.7;
+                    e.target.style.backgroundColor = "#B9FBC0";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.opacity = 1;
+                    e.target.style.backgroundColor = "transparent";
+                  }}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {/* Mobile Menu Toggle */}
+          {isMobile && (
+            <button
+              onClick={toggleMenu}
               style={{
-                width: "25px",
-                height: "2px",
-                backgroundColor: "#3b2f2f",
-                transform: menuOpen
-                  ? "rotate(45deg) translate(5px, 6px)"
-                  : "none",
-                transition: "transform 0.3s ease",
-                marginBottom: menuOpen ? "0" : "6px",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "0.5rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                height: "20px",
+                zIndex: 1001,
               }}
-            ></div>
-            <div
-              style={{
-                width: "25px",
-                height: "2px",
-                backgroundColor: "#3b2f2f",
-                opacity: menuOpen ? 0 : 1,
-                transition: "opacity 0.3s ease",
-                marginBottom: menuOpen ? "0" : "6px",
-              }}
-            ></div>
-            <div
-              style={{
-                width: "25px",
-                height: "2px",
-                backgroundColor: "#3b2f2f",
-                transform: menuOpen
-                  ? "rotate(-45deg) translate(5px, -6px)"
-                  : "none",
-                transition: "transform 0.3s ease",
-              }}
-            ></div>
-          </button>
-        )}
-      </div>
+              aria-label="Toggle navigation"
+              aria-expanded={menuOpen}
+            >
+              <div
+                style={{
+                  width: "25px",
+                  height: "2px",
+                  backgroundColor: "#3b2f2f",
+                  transform: menuOpen
+                    ? "rotate(45deg) translate(5px, 6px)"
+                    : "none",
+                  transition: "transform 0.3s ease",
+                  marginBottom: menuOpen ? "0" : "6px",
+                }}
+              ></div>
+              <div
+                style={{
+                  width: "25px",
+                  height: "2px",
+                  backgroundColor: "#3b2f2f",
+                  opacity: menuOpen ? 0 : 1,
+                  transition: "opacity 0.3s ease",
+                  marginBottom: menuOpen ? "0" : "6px",
+                }}
+              ></div>
+              <div
+                style={{
+                  width: "25px",
+                  height: "2px",
+                  backgroundColor: "#3b2f2f",
+                  transform: menuOpen
+                    ? "rotate(-45deg) translate(5px, -6px)"
+                    : "none",
+                  transition: "transform 0.3s ease",
+                }}
+              ></div>
+            </button>
+          )}
+        </div>
+      </Container>
 
       {/* Mobile Menu Overlay */}
       {isMobile && (

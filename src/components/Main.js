@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import Container from "./Container";
 
 function About() {
   const audioRef = useRef(null);
@@ -47,30 +48,18 @@ function About() {
     <section
       id="about"
       style={{
-        width: "100%",
-        minHeight: "100vh", // Changed from 80vh to 100vh for full screen height
-        backgroundColor: "#f9f6f1",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        boxSizing: "border-box",
         fontFamily: "'Lexend Deca', sans-serif",
         color: "#3b2f2f",
-        padding: isMobile ? "6rem 1rem 2rem" : "6rem 2rem 3rem", // Add top padding for fixed navbar
+        paddingTop: "6rem",
+        paddingBottom: "3rem",
       }}
     >
-      {/* Main Content Container */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          maxWidth: "1000px",
-          width: "100%",
-        }}
-      >
+      <Container>
         {/* Top Part: Image and Text */}
         <div
           style={{
@@ -81,6 +70,7 @@ function About() {
             width: "100%",
             gap: isMobile ? "2rem" : "3rem",
             textAlign: isMobile ? "center" : "left",
+            outline: "1px solid red", // RED OUTLINE for debugging
           }}
         >
           {/* Left: Image */}
@@ -202,7 +192,7 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
