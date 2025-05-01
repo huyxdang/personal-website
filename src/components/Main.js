@@ -48,7 +48,7 @@ function About() {
     <section
       id="about"
       style={{
-        minHeight: "80vh",
+        minHeight: "70vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
