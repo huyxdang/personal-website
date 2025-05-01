@@ -1,48 +1,45 @@
+// NavBar.js
 import React, { useState, useEffect, useRef } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import Container from "../styles/Container";
+import { FiMusic, FiPlay, FiPause } from "react-icons/fi";
 
-function Navbar() {
+function Navbar({ isPlaying, togglePlay }) {
+  // State for mobile menu toggle
   const [menuOpen, setMenuOpen] = useState(false);
+  // State for scroll effect
   const [scrolled, setScrolled] = useState(false);
+  // State for responsive layout
   const [isMobile, setIsMobile] = useState(false);
   const menuRef = useRef();
   const location = useLocation();
 
-  // Toggle menu function
+  // Toggle menu open/close
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  // Close menu when route changes
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
+  // Close menu when navigating to another route
+  useEffect(() => setMenuOpen(false), [location.pathname]);
 
-  // Handle window resize
+  // Update isMobile state on resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setMenuOpen(false);
-      }
+      if (window.innerWidth >= 768) setMenuOpen(false);
     };
-
-    handleResize(); // Run once on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Handle scroll for navbar styling
+  // Update scroll state to trigger styling
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 1);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 1);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking outside
+  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -53,18 +50,14 @@ function Navbar() {
         setMenuOpen(false);
       }
     };
-
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    if (menuOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
 
+  // Define navigation items
   const navItems = [
-    { name: "About", to: "/" },
-    { name: "Blog", to: "/blog" },
+    { name: "Home", to: "/" },
+    // { name: "Blog", to: "/blog" },
     { name: "10K-AI", to: "/10000" },
   ];
 
@@ -73,7 +66,7 @@ function Navbar() {
       style={{
         position: "fixed",
         width: "100%",
-        backgroundColor: scrolled ? "lightcoral" : "rgba(249, 246, 241, 0.95)",
+        backgroundColor: "rgba(249, 246, 241, 0.95)",
         backdropFilter: scrolled ? "blur(8px)" : "none",
         transition: "all 0.3s ease",
         boxShadow: scrolled ? "0 2px 10px rgba(0, 0, 0, 0.05)" : "none",
@@ -89,15 +82,10 @@ function Navbar() {
             justifyContent: "space-between",
             alignItems: "center",
             width: "100%",
-            padding: isMobile
-              ? "0.2rem 0"
-              : scrolled
-                ? "0.2rem 0"
-                : "1rem 0",
-            // outline: "1px solid red" // RED OUTLINE for debugging
+            padding: isMobile ? "0.2rem 0" : scrolled ? "0.2rem 0" : "1rem 0",
           }}
         >
-          {/* Logo or Brand Name */}
+          {/* Logo */}
           <div
             style={{
               fontSize: isMobile ? "1.25rem" : "1.5rem",
@@ -120,16 +108,9 @@ function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop nav links + music toggle */}
           {!isMobile && (
-            <div
-              style={{
-                display: "flex",
-                gap: "3rem",
-                flexShrink: 1,
-                overflow: "hidden",
-              }}
-            >
+            <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -139,7 +120,6 @@ function Navbar() {
                     fontWeight: 400,
                     fontSize: "1.25rem",
                     textDecoration: "none",
-                    position: "relative",
                     transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
@@ -154,10 +134,36 @@ function Navbar() {
                   {item.name}
                 </Link>
               ))}
+
+              {/* 🎷 Play Button */}
+              <button
+                onClick={togglePlay}
+                style={{
+                  backgroundColor: "#f9f6f1",
+                  border: "2px solid #3b2f2f",
+                  color: "#3b2f2f",
+                  fontFamily: "'Lexend Deca', sans-serif",
+                  fontSize: "0.9rem",
+                  padding: "0.4rem 1rem",
+                  borderRadius: "999px",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = "#f0ece6";
+                  e.target.style.transform = "translateY(-2px)";
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = "#f9f6f1";
+                  e.target.style.transform = "translateY(0)";
+                }}
+              >
+                  {isPlaying ? "⏸ Pause" : "▶ Play"}
+              </button>
             </div>
           )}
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile menu icon */}
           {isMobile && (
             <button
               onClick={toggleMenu}
@@ -171,16 +177,16 @@ function Navbar() {
               aria-label="Toggle navigation"
             >
               {menuOpen ? (
-                <FiX size={24} /> // ← close icon when open
+                <FiX size={24} color="#3b2f2f" />
               ) : (
-                <FiMenu size={24} />
-              )}{" "}
+                <FiMenu size={24} color="#3b2f2f" />
+              )}
             </button>
           )}
         </div>
       </Container>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile nav overlay */}
       {isMobile && (
         <div
           ref={menuRef}
