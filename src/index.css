@@ -67,15 +67,85 @@ a {
   text-align: left;
   margin-bottom: 2rem;
 }
-
 .metrics-block {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 2rem;
-  align-items: center;
-  margin-bottom: 2.5rem;
+  margin-top: 2rem;
+}
+
+.metric-card {
+  background: #f9f9f9;
+  border: 2px solid #3b2f2f;
+  border-radius: 1rem;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  text-align: start;
+  min-width: 200px;
+  flex: 1;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+.metric-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0rem;
+  color: #333;
 }
 
 .metric-value {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 3rem;
+  font-weight: 9900;
+  color: #3b2f2f;
+  margin: 0;
 }
+
+.metric-progress {
+  margin-top: 0.2rem;
+  height: 5px;
+  width: 100%; /* ✅ Make sure width is set */
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #79df93; /* ✅ Make this visible */
+  transition: width 0.4s ease;
+}
+
+.metric-progress-filler {
+  margin-top: 0.75rem;
+  height: 5px;
+  width: 100%; /* ✅ Make sure width is set */
+  background: #f9f9f9;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0rem;
+}
+
+.progress-bar-filler {
+  height: 100%;
+  background: #f9f9f9; /* ✅ Make this visible */
+  transition: width 0.4s ease;
+}
+
+
+.metric-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.metric-label-none {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+

@@ -9,8 +9,8 @@ function Hours() {
   const [avgWeek, setAvgWeek] = useState(null);
 
   useEffect(() => {
-    const sheetId = "19LiUceHbFpiuuNgaGCONlaPZSCtsYm6xy1CW6vBMyj0";
-    const apiKey = "AIzaSyArWB2UcjE1wHJPWQfnzqMhO-1NMyjrlYw";
+    const sheetId = process.env.REACT_APP_GOOGLE_SHEETS_ID;
+    const apiKey = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY;
     const totalHoursRange = "Summary!B2";
     const lastLoggedRange = "Summary!B3";
     const totalLoggedDaysRange = "Summary!B4";
@@ -106,32 +106,37 @@ function Hours() {
 
         {/* Metrics Section */}
         <div className="metrics-block">
-          <div>
-            <h2>⏱ Hours Logged</h2>
-            <p
-              className="metric-value"
-              style={{ textAlign: "center", fontSize: "1.4rem" }}
-            >
+          <div className="metric-card">
+            {/* Hours Logged*/}
+            <h3 className="metric-title">⏱ Total Hours</h3>
+            <p className="metric-value">
               {totalHours !== null ? totalHours : "Loading..."}
             </p>
+            {totalHours !== null && (
+              <>
+                <div className="metric-progress">
+                  <div
+                    className="progress-bar"
+                    style={{ width: `${(1000 / 10000) * 100}%` }}
+                  ></div>
+                </div>
+                <p className="metric-caption">
+                  {((999 / 10000) * 100).toFixed(1)}% of 10,000 hours
+                </p>
+              </>
+            )}
           </div>
-          <div>
-            <h2>🗓 Last Logged</h2>
-            <p
-              className="metric-value"
-              style={{ textAlign: "center", fontSize: "1.4rem" }}
-            >
-              {lastLogged || "Loading..."}
-            </p>
-          </div>
-          <div>
-            <h2>⛰️ Avg. Hours (last 7 days)</h2>
-            <p
-              className="metric-value"
-              style={{ textAlign: "center", fontSize: "1.4rem" }}
-            >
-              {avgWeek || "Loading..."}
-            </p>
+
+          {/* Hours Logged*/}
+          <div className="metric-card">
+            <h3 className="metric-title">⛰️ Daily Average</h3>
+            <p className="metric-value">{avgWeek || "Loading..."}</p>
+              <div
+                className="progress-bar-filler"
+                style={{ width: `${(1000 / 10000) * 100}%` }}
+              ></div>
+
+            <p className="metric-caption">Last 7 days</p>
           </div>
         </div>
 
