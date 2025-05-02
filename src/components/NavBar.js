@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import Container from "../styles/Container";
-import { FaHeadphones, FaItunesNote } from "react-icons/fa";
 
 function Navbar({ isPlaying, togglePlay }) {
   // State for mobile menu toggle

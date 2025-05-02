@@ -149,3 +149,12 @@ a {
   color: #666;
 }
 
+.link-style {
+  color: #5a73a0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link-style:hover {
+  opacity: 0.85;
+}

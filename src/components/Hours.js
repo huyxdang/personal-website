@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "../styles/Container";
 import BrownLink from "../styles/BrownLink";
+import MyNotes from "../learning_resources/MyNotes";
 
 function Hours() {
   const [totalHours, setTotalHours] = useState(null);
@@ -131,10 +132,10 @@ function Hours() {
           <div className="metric-card">
             <h3 className="metric-title">⛰️ Daily Average</h3>
             <p className="metric-value">{avgWeek || "Loading..."}</p>
-              <div
-                className="progress-bar-filler"
-                style={{ width: `${(1000 / 10000) * 100}%` }}
-              ></div>
+            <div
+              className="progress-bar-filler"
+              style={{ width: `${(1000 / 10000) * 100}%` }}
+            ></div>
 
             <p className="metric-caption">Last 7 days</p>
           </div>
@@ -155,17 +156,25 @@ function Hours() {
             share my understanding of AI.
           </p>
           <ul>
-            <li>
-              YouTube –{" "}
-              <a
-                href="https://www.youtube.com/watch?v=rqddGo22b0U"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Explaining Logistic Regression [First Video]
-              </a>
-            </li>
-            {/* Add more entries as you go */}
+            {MyNotes.map((section, idx) => (
+              <li key={idx}>
+                <strong>{section.category}</strong>
+                <ul>
+                  {section.items.map((item, subIdx) => (
+                    <li key={subIdx}>
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-style"
+                      >
+                        [{item.date}] {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
           </ul>
         </div>
       </Container>
