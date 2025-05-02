@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import Container from "../styles/Container";
-import { FiMusic, FiPlay, FiPause } from "react-icons/fi";
+import { FaHeadphones, FaItunesNote } from "react-icons/fa";
 
 function Navbar({ isPlaying, togglePlay }) {
   // State for mobile menu toggle
@@ -158,7 +158,7 @@ function Navbar({ isPlaying, togglePlay }) {
                   e.target.style.transform = "translateY(0)";
                 }}
               >
-                  {isPlaying ? "⏸ Pause" : "▶ Play"}
+                  🎷 Jazz
               </button>
             </div>
           )}
