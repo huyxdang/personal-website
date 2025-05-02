@@ -3,7 +3,7 @@ const MyNotes = [
       category: "🧠 AI Agents",
       items: [
         {
-          date: "2025-04",
+          date: "2025-05",
           label: "LLMs Under the Hood - Messages, Special Tokens, and Chat Templates [Notes]",
           url: "https://www.notion.so/LLMs-Under-the-Hood-Messages-Special-Tokens-and-Chat-Templates-1e7a3e4ac74f80fa94cdd393393b2a5d"
         }
@@ -13,8 +13,8 @@ const MyNotes = [
       category: "Others",
       items: [
         {
-          date: "2025-03",
-          label: "Explaining Logistic Regression [Video]",
+          date: "2025-04",
+          label: "Explaining Logistic Regression [First Video]",
           url: "https://www.youtube.com/watch?v=rqddGo22b0U"
         }
       ]

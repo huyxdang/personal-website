@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useRef, useState } from "react";
 import Main from "./components/Main";
 import Blog from "./components/Blog";
-import Hours from "./components/Hours";
+import Hours from "./components/Challenge10k";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import './App.css';

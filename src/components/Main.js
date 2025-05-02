@@ -87,7 +87,7 @@ function About() {
                 fontWeight: 600,
               }}
             >
-              hey, i'm Huy {" "}
+              Hey, i'm Huy {" "}
               <span
                 style={{
                   fontWeight: 100,
@@ -112,7 +112,7 @@ function About() {
                 marginBottom: "1rem",
               }}
             >
-              bridging <span style={{ textDecoration: "underline" }}>technology</span> and <span style={{ textDecoration: "underline" }}>social impacts</span>.
+              Bridging <span style={{ textDecoration: "underline" }}>technology</span> and <span style={{ textDecoration: "underline" }}>social impacts</span>.
             </h3>
 
             <h4

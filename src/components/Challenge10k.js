@@ -148,7 +148,7 @@ function Hours() {
 
         {/* Learning Section */}
         <div>
-          <h2>📚 My Learning</h2>
+          <h2>📚 Learning Notes</h2>
           <p>
             This section documents what I’ve learned — through teaching,
             writing, and building. While I’ll occasionally link external
