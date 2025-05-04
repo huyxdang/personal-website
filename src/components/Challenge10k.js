@@ -122,7 +122,7 @@ function Hours() {
                   ></div>
                 </div>
                 <p className="metric-caption">
-                  {((totalHours / 10000) * 100).toFixed(3)}% of 10,000 hours
+                  {((totalHours / 10000) * 100).toFixed(2)}% of 10,000 hours
                 </p>
               </>
             )}
