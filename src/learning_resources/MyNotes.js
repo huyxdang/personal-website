@@ -1,7 +1,12 @@
 const MyNotes = [
     {
-      category: "🧠 AI Agents",
+      category: "🤖 AI Agents",
       items: [
+        {
+          date: "2025-05",
+          label: "Tools in LLMs - What, How, Why? [Notes]",
+          url: "https://www.notion.so/Tools-in-LLMs-How-and-Why-1e9a3e4ac74f8010aa76ca86fa04a3cf?pvs=4"
+        },
         {
           date: "2025-05",
           label: "LLMs Under the Hood - Messages, Special Tokens, and Chat Templates [Notes]",
