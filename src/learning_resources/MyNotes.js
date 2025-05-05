@@ -2,6 +2,11 @@ const MyNotes = [
     {
       category: "🤖 AI Agents",
       items: [
+        { 
+          date: "2025-05",
+          label: "Thought-Action-Cycle Cycle [Notes]",
+          url: "https://www.notion.so/Thought-Action-Obsersavation-TAO-Cycle-1e9a3e4ac74f806282a3eb3e127ee380?pvs=4"
+        },
         {
           date: "2025-05",
           label: "Tools in LLMs - What, How, Why? [Notes]",
