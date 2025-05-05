@@ -4,7 +4,7 @@ const MyNotes = [
       items: [
         { 
           date: "2025-05",
-          label: "Thought-Action-Cycle Cycle [Notes]",
+          label: "The TAO Cycle [Notes]",
           url: "https://www.notion.so/Thought-Action-Obsersavation-TAO-Cycle-1e9a3e4ac74f806282a3eb3e127ee380?pvs=4"
         },
         {

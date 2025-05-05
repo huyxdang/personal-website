@@ -100,8 +100,7 @@ function Hours() {
           </p>
           <p>
             If you're reading this and the metrics below look suspiciously
-            stagnant, feel free to call me out. Soon, I’ll add a “nag me” button
-            where you can ping my inbox when progress stalls 😅.
+            stagnant, feel free to call me out!
           </p>
         </div>
 
