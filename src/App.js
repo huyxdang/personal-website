@@ -29,7 +29,7 @@ function App() {
     <Router>
       <audio ref={audioRef} loop>
         <source
-          src={`${process.env.PUBLIC_URL}/music/yohan_kim.mp3`}
+          src={`${process.env.PUBLIC_URL}/music/all_quiet.mp3`}
           type="audio/mpeg"
         />
       </audio>
