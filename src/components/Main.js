@@ -130,7 +130,7 @@ function About() {
             >
               Math ∪ Stats ∪ Econ at the{" "}
               <a
-                href="https://www.utoronto.ca"
+                href="https://en.wikipedia.org/wiki/University_of_Toronto"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-style"
