@@ -124,7 +124,9 @@ function About() {
                 color: "#333",
               }}
             >
-              I'm passionate about connecting cutting-edge technology with real-world social impact. My interests span AI Safety, Large Language Models, and World Models, with a particular focus on how these tools can drive innovation and improve lives in Vietnam. I believe in building technology not just because it's possible—but because it's meaningful.
+              I'm broadly interested in AI and game theory, and invested in a robotic future. 
+               I often think about how technology can create value and improve the lives of Vietnamese people. 
+               Within my lifetime, I want to see Vietnam flourish with innovation.
             </h4>
           </div>
         </div>

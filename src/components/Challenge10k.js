@@ -98,52 +98,49 @@ function Hours() {
             — reimplementing models, building tools, contributing to OS
             projects.
           </p>
-          <p>
-            If you're reading this and the metrics below look suspiciously
-            stagnant, feel free to call me out!
-          </p>
         </div>
 
-        {/* Metrics Section */}
-        <div className="metrics-block">
-          <div className="metric-card">
-            {/* Hours Logged*/}
-            <h3 className="metric-title">⏱ Total Hours</h3>
-            <p className="metric-value">
-              {totalHours !== null ? totalHours : "Loading..."}
-            </p>
-            {totalHours !== null && (
-              <>
-                <div className="metric-progress">
-                  <div
-                    className="progress-bar"
-                    style={{ width: `${(totalHours / 10000) * 100}%` }}
-                  ></div>
-                </div>
-                <p className="metric-caption">
-                  {((totalHours / 10000) * 100).toFixed(2)}% of 10,000 hours
-                </p>
-              </>
-            )}
-          </div>
+        {/*
+  <div className="metrics-block">
+    <div className="metric-card">
+      <h3 className="metric-title">⏱ Total Hours </h3>
+      <p className="metric-value">
+        {totalHours !== null ? (totalHours).toFixed(1) : "Loading..."}
+      </p>
 
-          {/* Hours Logged*/}
-          <div className="metric-card">
-            <h3 className="metric-title">⛰️ Daily Average</h3>
-            <p className="metric-value">{avgWeek || "Loading..."}</p>
+      {totalHours !== null && (
+        <>
+          <div className="metric-progress">
             <div
-              className="progress-bar-filler"
-              style={{ width: `${(1000 / 10000) * 100}%` }}
+              className="progress-bar"
+              style={{ width: `${((totalHours / 10000) * 100)}%` }}
             ></div>
-
-            <p className="metric-caption">Last 7 days</p>
           </div>
-        </div>
 
-        <p>
-          Got other metrics I should (or shouldn't) track?{" "}
-          <BrownLink href="mailto:xhuydng@gmail.com">Let me know!</BrownLink>
-        </p>
+          <p className="metric-caption"> 
+            {((totalHours / 10000) * 100).toFixed(2)}% of 10,000 hours (since Apr 18)
+          </p>
+        </>
+      )}
+    </div>
+
+    <div className="metric-card">
+      <h3 className="metric-title">⛰️ Daily Average</h3>
+      <p className="metric-value">{avgWeek || "Loading..."}</p>
+      <div
+        className="progress-bar-filler"
+        style={{ width: `${(1000 / 10000) * 100}%` }}
+      ></div>
+
+      <p className="metric-caption">Last 7 days</p>
+    </div>
+  </div>
+
+  <p>
+    Got other metrics I should (or shouldn't) track?{" "}
+    <BrownLink href="mailto:xhuydng@gmail.com">Let me know!</BrownLink>
+  </p>
+*/}
 
         {/* Learning Section */}
         <div>
