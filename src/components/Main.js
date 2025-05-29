@@ -56,11 +56,7 @@ function About() {
               src={`${process.env.PUBLIC_URL}/headshot.png`}
               alt="Huy Dang"
               style={{
-                width: isMobile
-                  ? windowWidth < 480
-                    ? "80%"
-                    : "60%"
-                  : "73%",
+                width: isMobile ? (windowWidth < 480 ? "80%" : "60%") : "73%",
                 borderRadius: "50px",
                 objectFit: "cover",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
@@ -87,7 +83,7 @@ function About() {
                 fontWeight: 600,
               }}
             >
-              Hey, i'm Huy {" "}
+              Hey, i'm Huy{" "}
               <span
                 style={{
                   fontWeight: 100,
@@ -100,7 +96,7 @@ function About() {
                   color: "#999999",
                 }}
               >
-                #hwee
+                {" "}#hwee
               </span>
             </h1>
 
@@ -112,7 +108,13 @@ function About() {
                 marginBottom: "1rem",
               }}
             >
-              Bridging <span style={{ textDecoration: "underline" }}>technology</span> and <span style={{ textDecoration: "underline" }}>social impacts</span>.
+              Bridging{" "}
+              <span style={{ textDecoration: "underline" }}>technology</span>{" "}
+              and{" "}
+              <span style={{ textDecoration: "underline" }}>
+                social impacts
+              </span>
+              .
             </h3>
 
             <h4
@@ -124,9 +126,9 @@ function About() {
                 color: "#333",
               }}
             >
-              I'm broadly interested in AI and game theory, and invested in a robotic future. 
-               I often think about how technology can create value and improve the lives of Vietnamese people. 
-               Within my lifetime, I want to see Vietnam flourish with innovation.
+              I'm broadly interested in AI and game theory I think a lot about technology and its values in
+              improving the lives of Vietnamese people. Within my lifetime, 
+              I want to see Vietnam flourish with innovation.
             </h4>
           </div>
         </div>
