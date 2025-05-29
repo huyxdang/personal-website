@@ -1,6 +1,7 @@
 // Main.js (About)
 import React, { useState, useEffect } from "react";
 import Container from "../styles/Container";
+import BrownLink from "../styles/BrownLink";
 
 function About() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -96,7 +97,8 @@ function About() {
                   color: "#999999",
                 }}
               >
-                {" "}#hwee
+                {" "}
+                #hwee
               </span>
             </h1>
 
@@ -126,9 +128,20 @@ function About() {
                 color: "#333",
               }}
             >
-              I'm broadly interested in AI and game theory I think a lot about technology and its values in
-              improving the lives of Vietnamese people. Within my lifetime, 
-              I want to see Vietnam flourish with innovation.
+              (Math ∪ Stats ∪ Econ) at the{" "}
+              <a
+                href="https://www.utoronto.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-style"
+                style={{ fontWeight: "bold" }}
+              >
+                University of Toronto
+              </a>{" "}
+              . I'm interested in low-resource language data, LLMs, and robots.
+              I also enjoy reading about human behaviors and game theory. I
+              spend lots of time thinking about how tech can improve lives in
+              Vietnam.
             </h4>
           </div>
         </div>
