@@ -47,7 +47,7 @@ function About() {
           {/* Left: Image */}
           <div
             style={{
-              flex: isMobile ? "unset" : "0.7",
+              flex: isMobile ? "unset" : "0.72",
               width: isMobile ? "100%" : "auto",
               display: "flex",
               justifyContent: isMobile ? "center" : "flex-start",
