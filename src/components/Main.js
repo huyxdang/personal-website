@@ -128,7 +128,7 @@ function About() {
                 color: "#333",
               }}
             >
-              (Math ∪ Stats ∪ Econ) at the{" "}
+              Math ∪ Stats ∪ Econ at the{" "}
               <a
                 href="https://www.utoronto.ca"
                 target="_blank"
@@ -136,12 +136,10 @@ function About() {
                 className="link-style"
                 style={{ fontWeight: "bold" }}
               >
-                University of Toronto
+                University of Toronto.
               </a>{" "}
-              . I'm interested in low-resource language data, LLMs, and robots.
-              I also enjoy reading about human behaviors and game theory. I
-              spend lots of time thinking about how tech can improve lives in
-              Vietnam.
+              I'm interested in low-resource language data and robots, and enjoy learning about game theory. 
+              I spend lots of time thinking about how tech can improve lives in Vietnam.
             </h4>
           </div>
         </div>
