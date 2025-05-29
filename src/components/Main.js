@@ -47,7 +47,7 @@ function About() {
           {/* Left: Image */}
           <div
             style={{
-              flex: isMobile ? "unset" : "0.8",
+              flex: isMobile ? "unset" : "0.7",
               width: isMobile ? "100%" : "auto",
               display: "flex",
               justifyContent: isMobile ? "center" : "flex-start",
@@ -58,7 +58,7 @@ function About() {
               alt="Huy Dang"
               style={{
                 width: isMobile ? (windowWidth < 480 ? "80%" : "60%") : "73%",
-                borderRadius: "50px",
+                borderRadius: "30px",
                 objectFit: "cover",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
               }}
@@ -142,7 +142,65 @@ function About() {
               I spend lots of time thinking about how tech can improve lives in Vietnam.
             </h4>
           </div>
+          
         </div>
+        {/* Resume-Like Experience Section Below Everything */}
+<div
+  style={{
+    marginTop: "4rem",
+    width: "100%",
+    borderTop: "1px solid #ddd",
+    paddingTop: "2rem",
+  }}
+>
+  <h2
+    style={{
+      fontSize: windowWidth < 480 ? "1.2rem" : "1.5rem",
+      fontWeight: 600,
+      marginBottom: "1.5rem",
+      color: "#3b2f2f",
+      textAlign: isMobile ? "center" : "left",
+    }}
+  >
+    Experience
+  </h2>
+
+  {/* AI Product Lead */}
+  <div style={{ marginBottom: "2rem" }}>
+    <h3 style={{ margin: 0, fontWeight: 600 }}>AI Product Lead</h3>
+    <p style={{ margin: "0.2rem 0", fontStyle: "italic", fontSize: "0.95rem" }}>
+      Global Challenge Lab · Imperial College London · Jul–Aug 2024
+    </p>
+    <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
+      <li>
+        Built assistive mobile app for the visually impaired with TensorFlow Lite and OpenCV.
+      </li>
+      <li>
+        Secured $18K funding and nominated for the 2024 SDG Paris Olympiad.
+      </li>
+    </ul>
+  </div>
+
+  {/* Machine Learning Engineer */}
+  <div style={{ marginBottom: "2rem" }}>
+    <h3 style={{ margin: 0, fontWeight: 600 }}>Machine Learning Engineer</h3>
+    <p style={{ margin: "0.2rem 0", fontStyle: "italic", fontSize: "0.95rem" }}>
+      Institute for Catastrophic Loss Reduction · Aug–Sep 2024
+    </p>
+    <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
+      <li>
+        Created a real-time hailstorm tracker using Twitter API + R dashboard for emergency response.
+      </li>
+      <li>
+        Presented data-driven strategies to the board for policy implementation.
+      </li>
+    </ul>
+  </div>
+
+
+</div>
+
+        
       </Container>
     </section>
   );
