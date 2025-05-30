@@ -154,13 +154,6 @@ function About() {
   }}
 >
   <h2
-    style={{
-      fontSize: windowWidth < 480 ? "1.2rem" : "1.5rem",
-      fontWeight: 600,
-      marginBottom: "1.5rem",
-      color: "#3b2f2f",
-      textAlign: isMobile ? "center" : "left",
-    }}
   >
     Experience
   </h2>

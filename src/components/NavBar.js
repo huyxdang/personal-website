@@ -103,7 +103,7 @@ function Navbar({ isPlaying, togglePlay }) {
                 e.target.style.backgroundColor = "transparent";
               }}
             >
-              Huy Dang
+              Huy X. Dang
             </Link>
           </div>
 
