@@ -211,13 +211,13 @@ function About() {
             </h2>
 
             <p className="text-lg md:text-xl font-sans text-[#1f1f1f] leading-relaxed">
-              I’m working on{" "}
+              I’m currently working on{" "}
               <a
-                href="https://en.wikipedia.org/wiki/University_of_Toronto"
+                href="https://anti-dumb-data-club.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-style"
-                style={{ fontWeight: "bold" }}
+                style={{ fontWeight: "bold", textDecoration:"underline" }}
               >
                 Local Mind
               </a>
