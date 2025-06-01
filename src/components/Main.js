@@ -138,92 +138,95 @@ function About() {
               >
                 University of Toronto.
               </a>{" "}
-              I'm interested in low-resource language data and robots, and enjoy learning about game theory. 
-              I spend lots of time thinking about how tech can improve lives in Vietnam.
+              I'm interested in low-resource language data and robots, and enjoy
+              learning about game theory. I spend lots of time thinking about
+              how tech can improve lives in Vietnam.
             </h4>
           </div>
-          
         </div>
         {/* Resume-Like Experience Section Below Everything */}
-<div
-  style={{
-    marginTop: "4rem",
-    width: "100%",
-    borderTop: "1px solid #ddd",
-    paddingTop: "2rem",
-  }}
->
-  <h2
-  >
-    Previously,
-  </h2>
+        <div
+          style={{
+            marginTop: "4rem",
+            width: "100%",
+            borderTop: "1px solid #ddd",
+            paddingTop: "2rem",
+          }}
+        >
+          <h2>Previously,</h2>
 
-  {/* AI Product Lead */}
-  <div style={{ marginBottom: "2rem" }}>
-    <h3 style={{ margin: 0, fontWeight: 600 }}>AI Product Lead</h3>
-    <p style={{ margin: "0.2rem 0", fontStyle: "italic", fontSize: "0.95rem" }}>
-      Global Challenge Lab · Imperial College London · Jul–Aug 2024
-    </p>
-    <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
-      <li>
-        Built assistive mobile app for the visually impaired with TensorFlow Lite and OpenCV.
-      </li>
-      <li>
-        Secured $18K funding and nominated for the 2024 SDG Paris Olympiad.
-      </li>
-    </ul>
-  </div>
+          {/* AI Product Lead */}
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ margin: 0, fontWeight: 600 }}>AI Product Lead</h3>
+            <p
+              style={{
+                margin: "0.2rem 0",
+                fontStyle: "italic",
+                fontSize: "0.95rem",
+              }}
+            >
+              Global Challenge Lab · Imperial College London · Jul–Aug 2024
+            </p>
+            <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
+              <li>
+                Built assistive mobile app for the visually impaired with
+                TensorFlow Lite and OpenCV.
+              </li>
+              <li>
+                Secured $18K funding and nominated for the 2024 SDG Paris
+                Olympiad.
+              </li>
+            </ul>
+          </div>
 
-  {/* Machine Learning Engineer */}
-  <div style={{ marginBottom: "2rem" }}>
-    <h3 style={{ margin: 0, fontWeight: 600 }}>Machine Learning Engineer</h3>
-    <p style={{ margin: "0.2rem 0", fontStyle: "italic", fontSize: "0.95rem" }}>
-      Institute for Catastrophic Loss Reduction · Aug–Sep 2024
-    </p>
-    <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
-      <li>
-        Created a real-time hailstorm tracker using Twitter API + R dashboard for emergency response.
-      </li>
-      <li>
-        Presented data-driven strategies to the board for policy implementation.
-      </li>
-    </ul>
-  </div>
+          {/* Machine Learning Engineer */}
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ margin: 0, fontWeight: 600 }}>
+              Machine Learning Engineer
+            </h3>
+            <p
+              style={{
+                margin: "0.2rem 0",
+                fontStyle: "italic",
+                fontSize: "0.95rem",
+              }}
+            >
+              Institute for Catastrophic Loss Reduction · Aug–Sep 2024
+            </p>
+            <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
+              <li>
+                Created a real-time hailstorm tracker using Twitter API + R
+                dashboard for emergency response.
+              </li>
+              <li>
+                Presented data-driven strategies to the board for policy
+                implementation.
+              </li>
+            </ul>
+          </div>
 
-  <div
-  style={{
-    marginTop: "4rem",
-    width: "100%",
-    borderTop: "1px solid #ddd",
-    paddingTop: "2rem",
-  }}
->
-  <h2
-  >
-    Currently...
-  </h2>
+          <section className="text-center max-w-3xl mx-auto px-6 py-12 space-y-4">
+            <h2 className="text-2xl md:text-3xl font-mono text-[#4b2e83] tracking-tight">
+              Currently...
+            </h2>
 
-  <h3>
-    Working on 
-
-    <a
-                href="https://anti-dumb-data-club.vercel.app/"
+            <p className="text-lg md:text-xl font-sans text-[#1f1f1f] leading-relaxed">
+              I’m working on{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/University_of_Toronto"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-style"
                 style={{ fontWeight: "bold" }}
               >
-Local Mind
-              </a>{" "} which provides high-quality, ethically-sourced training data for low-resource languages. Our mission is to make
-              AI more inclusive. 
-    </h3> 
-
-  </div>
-
-
-</div>
-
-        
+                Local Mind
+              </a>
+              , a Vietnam-based startup providing high-quality,
+              ethically-sourced training data for low-resource languages. Our
+              mission is to make AI inclusive for all.
+            </p>
+          </section>
+        </div>
       </Container>
     </section>
   );
