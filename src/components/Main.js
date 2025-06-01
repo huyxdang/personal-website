@@ -155,7 +155,7 @@ function About() {
 >
   <h2
   >
-    Experience
+    Previously,
   </h2>
 
   {/* AI Product Lead */}
@@ -188,6 +188,36 @@ function About() {
         Presented data-driven strategies to the board for policy implementation.
       </li>
     </ul>
+  </div>
+
+  <div
+  style={{
+    marginTop: "4rem",
+    width: "100%",
+    borderTop: "1px solid #ddd",
+    paddingTop: "2rem",
+  }}
+>
+  <h2
+  >
+    Currently...
+  </h2>
+
+  <h3>
+    Working on 
+
+    <a
+                href="https://anti-dumb-data-club.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-style"
+                style={{ fontWeight: "bold" }}
+              >
+Local Mind
+              </a>{" "} which provides high-quality, ethically-sourced training data for low-resource languages. Our mission is to make
+              AI more inclusive. 
+    </h3> 
+
   </div>
 
 
