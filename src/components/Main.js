@@ -213,7 +213,7 @@ function About() {
             <p className="text-lg md:text-xl font-sans text-[#1f1f1f] leading-relaxed">
               I’m currently working on{" "}
               <a
-                href="https://anti-dumb-data-club.vercel.app/"
+                href="https://www.localmind.xyz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-style"
@@ -221,7 +221,7 @@ function About() {
               >
                 Local Mind
               </a>
-              , a Vietnam-based startup providing high-quality,
+              , a tech startup providing high-quality,
               ethically-sourced training data for low-resource languages. Our
               mission is to make AI inclusive for all.
             </p>
