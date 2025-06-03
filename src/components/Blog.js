@@ -1,3 +1,4 @@
+import React from "react";
 import Container from "../styles/Container";
 
 function Blog() {
@@ -11,73 +12,39 @@ function Blog() {
   ];
 
   return (
-    <section
-      id="blog"
-      className="page-section"
-      style={{
-        padding: "3rem 1rem", // reduced padding
-      }}
-    >
+    <section id="blog" className="page-section">
       <Container>
-        {/* Title + Intro Block */}
-        <div
-          className="intro-block"
-          style={{
-            marginBottom: "2rem", // tighten spacing below intro
-          }}
-        >
-          <h1 style={{ marginBottom: "0.5rem" }}>Blog</h1>
-          <h3 style={{ marginTop: 0 }}>
-            long-form writing & exploration. filtered thoughts.
+        {/* Intro Section */}
+        <div className="intro-block">
+          <h1>Blog</h1>
+          <h3>
+            Long-form writing & explorations. Filtered thoughts.
           </h3>
+          <p>
+          I used to struggle with writing, but I've come to realize 
+          how crucial it is for expressing ideas clearly. This 
+          is where I share reflections and explorations on topics that 
+          fascinate me; and document my journey toward becoming a better writer.
+          </p>
         </div>
 
-        {/* Blog Post List */}
-        <div
-          style={{
-            maxWidth: "700px",
-            marginLeft: 0,
-          }}
-        >
-          {posts.map((post, index) => (
-            <div
-              key={index}
-              style={{
-                marginBottom: "1.5rem", // slightly reduced gap between posts
-              }}
-            >
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  color: "#777",
-                }}
-              >
-                {post.date}
-              </p>
-              <a
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-style"
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "1.1rem",
-                  color: "#3366cc",
-                  textDecoration: "none",
-                  transition: "color 0.2s ease",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "#254ba8")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "#3366cc")
-                }
-              >
-                {post.title}
-              </a>
-            </div>
-          ))}
+        {/* Blog Posts Section */}
+        <div>
+          <h2>Posts</h2>
+          <ul>
+            {posts.map((post, index) => (
+              <li key={index}>
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-style"
+                >
+                  [{post.date}] {post.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </section>
