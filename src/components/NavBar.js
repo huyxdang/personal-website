@@ -56,7 +56,7 @@ function Navbar({ isPlaying, togglePlay }) {
   // Define navigation items
   const navItems = [
     { name: "Home", to: "/" },
-    // { name: "Blog", to: "/blog" },
+    { name: "Blog", to: "/blog" },
     { name: "10K-AI", to: "/10000" },
   ];
 

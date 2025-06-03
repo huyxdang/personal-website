@@ -138,8 +138,8 @@ function About() {
               >
                 University of Toronto.
               </a>{" "}
-              I'm interested in low-resource language data and robots, and enjoy
-              learning about game theory. I spend lots of time thinking about
+              I'm interested in low-resource language data and AI research, and enjoy
+              learning about game theory. I spend a lot of time thinking about
               how tech can improve lives in Vietnam.
             </h4>
           </div>
@@ -211,13 +211,13 @@ function About() {
             </h2>
 
             <p className="text-lg md:text-xl font-sans text-[#1f1f1f] leading-relaxed">
-              I’m currently working on{" "}
+              I’m working on{" "}
               <a
                 href="https://www.localmind.xyz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-style"
-                style={{ fontWeight: "bold", textDecoration:"underline" }}
+                style={{ fontWeight: "bold" }}
               >
                 Local Mind
               </a>
