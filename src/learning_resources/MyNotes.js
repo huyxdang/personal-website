@@ -20,12 +20,12 @@ const MyNotes = [
       ]
     },
     {
-      category: "Others",
+      category: "Papers",
       items: [
         {
-          date: "2025-04",
-          label: "Explaining Logistic Regression [First Video]",
-          url: "https://www.youtube.com/watch?v=rqddGo22b0U"
+          date: "2025-06",
+          label: "Meta's V-JEPA 2",
+          url: "https://www.youtube.com/watch?v=UZNYQbqhBTE&t=84s"
         }
       ]
     }
