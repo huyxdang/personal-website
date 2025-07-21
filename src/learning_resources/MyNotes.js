@@ -25,7 +25,7 @@ const MyNotes = [
         {
           date: "2025-06",
           label: "Meta's V-JEPA 2",
-          url: "https://www.youtube.com/watch?v=UZNYQbqhBTE&t=84s"
+          url: "https://www.youtube.com/watch?v=V955XMkdoXY"
         }
       ]
     }
