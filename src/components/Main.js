@@ -138,8 +138,9 @@ function About() {
               >
                 University of Toronto.
               </a>{" "}
-              I'm interested in World Models and exploring Continual Learning and RL. I also love
-              learning about game theory. I spend a lot of time thinking about
+              I'm interested in world models, continual learning, and reinforcement learning. 
+              I also enjoy learning about game theory and playing jazz music.
+              I spend a lot of time thinking about
               how tech can improve lives in Vietnam.
             </h4>
           </div>
@@ -153,7 +154,36 @@ function About() {
             paddingTop: "2rem",
           }}
         >
-          <h2>Previously,</h2>
+
+          <h2> Currently...</h2>
+          {/* New Turing Institute */}
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ margin: 0, fontWeight: 600 }}>AI Research</h3>
+            <p
+              style={{
+                margin: "0.2rem 0",
+                fontStyle: "italic",
+                fontSize: "0.95rem",
+              }}
+            >
+              Gstar Bootcamp · New Turing Institute 
+            </p>
+            <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
+              <li>
+              Research program by Deepmind's Dr. Thang Luong and Dr. Yi Tay and mentors from top labs (Stanford, OpenAI, etc.).
+              </li>
+              <li>
+              Accepted (w/ full scholarship) as one of 48 participants, including PhDs and research residents.
+              </li>
+              <li>
+              Research focuses on improving foundation models on long-horizon tasks.
+              </li>
+            </ul>
+          </div>
+              
+
+
+          <h2>Previously...</h2>
 
           {/* AI Product Lead */}
           <div style={{ marginBottom: "2rem" }}>
@@ -169,12 +199,25 @@ function About() {
             </p>
             <ul style={{ paddingLeft: "1.2rem", fontSize: "0.95rem" }}>
               <li>
-                Built assistive mobile app for the visually impaired with
-                TensorFlow Lite and OpenCV.
+                Built an 
+                {" "}
+              <a
+                href="https://www.youtube.com/watch?v=dKt-yfZ82qw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-style"
+                style={{ fontWeight: "bold" }}
+              >
+                assistive mobile app
+              </a>{" "}
+                 for the visually impaired to navigate the street.
               </li>
               <li>
-                Secured $18K funding and nominated for the 2024 SDG Paris
-                Olympiad.
+                Secured $18K funding & Nominated for the SDG Paris
+                Olympiad '24' @ Paris, France.
+              </li>
+              <li>
+                Won the Social Significance Award @ Tsinghua Open Hack, China. 
               </li>
             </ul>
           </div>
