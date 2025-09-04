@@ -138,7 +138,7 @@ function About() {
               >
                 University of Toronto.
               </a>{" "}
-              I'm interested in low-resource language data and AI research, and enjoy
+              I'm interested in World Models and exploring Continual Learning and RL. I also love
               learning about game theory. I spend a lot of time thinking about
               how tech can improve lives in Vietnam.
             </h4>
@@ -204,28 +204,6 @@ function About() {
               </li>
             </ul>
           </div>
-
-          <section className="text-center max-w-3xl mx-auto px-6 py-12 space-y-4">
-            <h2 className="text-2xl md:text-3xl font-mono text-[#4b2e83] tracking-tight">
-              Currently...
-            </h2>
-
-            <p className="text-lg md:text-xl font-sans text-[#1f1f1f] leading-relaxed">
-              I’m working on{" "}
-              <a
-                href="https://www.localmind.xyz/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-style"
-                style={{ fontWeight: "bold" }}
-              >
-                Local Mind
-              </a>
-              , a tech startup providing high-quality,
-              ethically-sourced training data for low-resource languages. Our
-              mission is to make AI inclusive for all.
-            </p>
-          </section>
         </div>
       </Container>
     </section>
