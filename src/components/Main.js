@@ -182,7 +182,14 @@ function About() {
           </div>
               
 
-
+          <div
+          style={{
+            marginTop: "4rem",
+            width: "100%",
+            borderTop: "1px solid #ddd",
+            paddingTop: "2rem",
+          }}
+        >
           <h2>Previously...</h2>
 
           {/* AI Product Lead */}
@@ -246,6 +253,7 @@ function About() {
                 implementation.
               </li>
             </ul>
+          </div>
           </div>
         </div>
       </Container>
