@@ -116,7 +116,7 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              [Notes] The Thought-Action-Observation Cycle
+              The Thought-Action-Observation Cycle
             </a>{" "}
           </p>
           <p className="hero-text">
@@ -126,7 +126,7 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              [Notes] Tools in LLMs - What, How, Why? 
+              Tools in LLMs - What, How, Why? 
             </a>{" "}
           </p>
           <p className="hero-text">
@@ -136,7 +136,7 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              [Notes] LLMs Under the Hood - Messages, Special Tokens, and ChatTemplates
+              LLMs Under the Hood
             </a>{" "}
           </p>
         </section>
