@@ -89,6 +89,7 @@ a {
   object-fit: cover;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+  filter: grayscale(100%);
 }
 
 .accent-link {
