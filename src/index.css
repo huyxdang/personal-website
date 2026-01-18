@@ -108,6 +108,7 @@ a {
 .writing-link {
   font-weight: 600;
   text-decoration: none;
+  color: #b23b2a;
 }
 
 .writing-link:hover {

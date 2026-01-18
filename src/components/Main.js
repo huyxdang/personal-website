@@ -106,8 +106,9 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              A Lot of Mistakes: What I Learned in 2025
+              Lessons from 2025 
             </a>
+            I've learned to play to your strenght, that useful is better than looking impressive, and to go the extra mile.
           </p>
           <p className="hero-text">
             <a
@@ -118,6 +119,7 @@ function About() {
             >
               The Thought-Action-Observation Cycle
             </a>{" "}
+            
           </p>
           <p className="hero-text">
             <a
@@ -131,7 +133,7 @@ function About() {
           </p>
           <p className="hero-text">
             <a
-              href="ttps://www.notion.so/LLMs-Under-the-Hood-Messages-Special-Tokens-and-Chat-Templates-1e7a3e4ac74f80fa94cdd393393b2a5d"
+              href="https://www.notion.so/LLMs-Under-the-Hood-Messages-Special-Tokens-and-Chat-Templates-1e7a3e4ac74f80fa94cdd393393b2a5d?source=copy_link"
               target="_blank"
               rel="noopener noreferrer"
               className="writing-link"
