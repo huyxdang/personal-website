@@ -106,9 +106,8 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              Lessons from 2025 
+              A Lot of Mistakes: Lesson from 2025
             </a>
-            I've learned to play to your strenght, that useful is better than looking impressive, and to go the extra mile.
           </p>
           <p className="hero-text">
             <a
@@ -119,7 +118,7 @@ function About() {
             >
               The Thought-Action-Observation Cycle
             </a>{" "}
-            
+
           </p>
           <p className="hero-text">
             <a
