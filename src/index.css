@@ -93,11 +93,12 @@ a {
 
 .accent-link {
   position: relative;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   text-decoration-color: #b23b2a;
+  color: #b23b2a;
 }
 
 .accent-link:hover {

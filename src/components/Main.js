@@ -54,7 +54,7 @@ function About() {
                 NeurIPS ’25
               </a>{" "}
               to explore research papers, won $15k+ in hackathons, and
-              pitched tech to hundreds of people.
+              pitched in front of hundreds of people.
             </p>
             <p className="hero-text">
               If you’re reading this, I’d love to connect - {" "}
