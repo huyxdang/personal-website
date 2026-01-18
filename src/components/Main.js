@@ -8,9 +8,12 @@ function About() {
       <Container>
         <div className="hero-grid">
           <div className="hero-copy">
-            <h1 className="hero-title">Huy Dang</h1>
+            <h1 className="hero-title">Huy X. Dang</h1>
             <p className="hero-text">
-              I’m interested in building AI applications - I believe models are very capable, but their power hasn’t been *fully*
+              I’m interested in building AI applications 
+            </p>
+            <p className="hero-text">
+              I believe models are very capable, but their power hasn’t been *fully*
               translated into user value yet.
             </p>
             <p className="hero-text">
