@@ -121,7 +121,7 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              A Lot of Mistakes: Lesson from 2025
+              A Lot of Mistakes: What I Learned in 2025
             </a>
           </p>
           <p className="hero-text">
