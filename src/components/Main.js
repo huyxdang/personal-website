@@ -14,7 +14,7 @@ function About() {
             </p>
 
             <p className="hero-text">
-              I believe models are very capable, but their power hasn’t been *fully*
+              I believe models are have become capable, but their power hasn't been *fully*
               translated into user value yet.
             </p>
 
@@ -63,10 +63,10 @@ function About() {
             </p>
 
             <p className="interests">
-              I enjoy Jazz and Photography; I'm also a proud Vietnamese.
+              I'm a proud Vietnamese. I also enjoy Jazz and Photography.
             </p>
             <p className="hero-text">
-              If you’re reading this, I’d love to chat - {" "}
+              If you’re reading this, I’d love to chat! - {" "}
               <a
                 href="https://x.com/xhuydang"
                 target="_blank"
@@ -98,7 +98,7 @@ function About() {
 
           <div className="hero-photo">
             <img
-              src={`${process.env.PUBLIC_URL}/headshot.png`}
+              src={`${process.env.PUBLIC_URL}/headshot.jpg`}
               alt="Huy Dang"
             />
           </div>
