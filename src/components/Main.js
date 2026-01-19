@@ -10,12 +10,12 @@ function About() {
           <div className="hero-copy">
             <h1 className="hero-title">Huy X. Dang</h1>
             <p className="hero-text">
-              I’m interested in building AI applications.
+              I’m interested in AI applications.
             </p>
 
             <p className="hero-text">
-              I believe models are have become capable, but their power hasn't been *fully*
-              translated into user value yet.
+            Models have become very capable, 
+            but their power hasn't been *fully* translated into user value yet.
             </p>
 
             <p className="hero-text">
@@ -62,8 +62,13 @@ function About() {
               pitched in front of hundreds of people.
             </p>
 
+            <p className="belief">
+              I optimize for learning, which I believe is a by-product of
+              working with great people on challenging problems.
+            </p>
+
             <p className="interests">
-              I'm a proud Vietnamese. I also enjoy Jazz and Photography.
+              I'm a proud Vietnamese; I also enjoy Jazz and Photography.
             </p>
             <p className="hero-text">
               If you’re reading this, I’d love to chat! - {" "}
@@ -101,6 +106,7 @@ function About() {
               src={`${process.env.PUBLIC_URL}/headshot.jpg`}
               alt="Huy Dang"
             />
+            <p className="hero-photo-caption">@ Ta Xua, Viet Nam // Taken by sister</p>
           </div>
         </div>
 
