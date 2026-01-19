@@ -131,7 +131,7 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              The Thought-Action-Observation Cycle
+              The Thought - Action - Observation Cycle
             </a>{" "}
 
           </p>
