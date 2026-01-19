@@ -10,12 +10,14 @@ function About() {
           <div className="hero-copy">
             <h1 className="hero-title">Huy X. Dang</h1>
             <p className="hero-text">
-              I’m interested in building AI applications 
+              I’m interested in building AI applications.
             </p>
+
             <p className="hero-text">
               I believe models are very capable, but their power hasn’t been *fully*
               translated into user value yet.
             </p>
+
             <p className="hero-text">
               I studied Statistics & Math at the{" "}
               <a
@@ -59,8 +61,12 @@ function About() {
               to explore research papers, won $15k+ in hackathons, and
               pitched in front of hundreds of people.
             </p>
+
+            <p className="interests">
+              I enjoy Jazz and Photography; I'm also a proud Vietnamese.
+            </p>
             <p className="hero-text">
-              If you’re reading this, I’d love to connect - {" "}
+              If you’re reading this, I’d love to chat - {" "}
               <a
                 href="https://x.com/xhuydang"
                 target="_blank"
