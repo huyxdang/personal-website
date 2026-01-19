@@ -106,7 +106,7 @@ function About() {
               src={`${process.env.PUBLIC_URL}/headshot.jpg`}
               alt="Huy Dang"
             />
-            <p className="hero-photo-caption">@ Ta Xua, Viet Nam // Taken by sister</p>
+            <p className="hero-photo-caption">@ Ta Xua, Viet Nam // Taken by Sister</p>
           </div>
         </div>
 
