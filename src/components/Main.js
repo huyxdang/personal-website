@@ -58,6 +58,16 @@ function About() {
               >
                 NeurIPS ’25
               </a>{" "}
+              and 
+              {" "}
+              <a
+                href="https://paper-rag-eight.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                PaperRAG
+              </a>{" "}
               to explore research papers, won $15k+ in hackathons, and
               pitched in front of hundreds of people.
             </p>
@@ -122,7 +132,7 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              Magistral: reasoning without traces
+              Magistral: Reasoning without Traces
             </a>
           </p>
 
