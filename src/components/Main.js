@@ -115,12 +115,12 @@ function About() {
           <p className="writings-text">
           </p>
 
-          <p className="magistral">
+          <p className="hero-text">
             <a
               href="https://www.notion.so/Magistral-2fda3e4ac74f804da8eff7ba9f525ff2?source=copy_link"
               target="_blank"
               rel="noopener noreferrer"
-              className="magistral-link"
+              className="writing-link"
             >
               Magistral: reasoning without traces
             </a>
