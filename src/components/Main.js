@@ -68,8 +68,27 @@ function About() {
               >
                 PaperRAG
               </a>{" "}
-              to explore research papers, won $15k+ in hackathons, and
-              pitched in front of hundreds of people.
+              to explore research papers. I also built
+              {" "}
+              <a
+                href="https://www.youtube.com/watch?v=dKt-yfZ82qw&t=63s"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                NaviBuddy
+              </a>{" "}
+              to help the visually-impaired, receiving $15k+ in grant and 
+              partnering with the 
+              {" "}
+              <a
+                href="https://www.facebook.com/vitreemkhuyettatvietnam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                Vietnam Fund for Children with Disabilities
+              </a>{" "}
             </p>
 
             <p className="belief">
