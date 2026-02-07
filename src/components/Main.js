@@ -77,9 +77,8 @@ function About() {
                 className="accent-link"
               >
                 NaviBuddy
-              </a>{" "}
-              to help the visually-impaired, receiving $15k+ in grant and 
-              partnering with the 
+              </a>{", "}
+              receiving $15k+ grant and partnering with the 
               {" "}
               <a
                 href="https://www.facebook.com/vitreemkhuyettatvietnam"
