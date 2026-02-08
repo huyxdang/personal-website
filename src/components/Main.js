@@ -78,15 +78,8 @@ function About() {
               >
                 NaviBuddy
               </a>{", "}
-              which received $15k+ and partnered with the 
-              <a
-                href="https://www.facebook.com/vitreemkhuyettatvietnam"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="accent-link"
-              >
-                Vietnam for Disabled Children
-              </a>
+              which received $15k+ and partnered with the Vietnam Fund for Children
+              with Disabilities.
             </p>
 
             <p className="belief">
