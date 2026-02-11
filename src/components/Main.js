@@ -10,12 +10,7 @@ function About() {
           <div className="hero-copy">
             <h1 className="hero-title">Huy X. Dang</h1>
             <p className="hero-text">
-              I’m interested in AI applications.
-            </p>
-
-            <p className="hero-text">
-            Models have become very capable, 
-            but their power hasn't been *fully* translated into user value yet.
+              I aim to make AI more accessible.
             </p>
 
             <p className="hero-text">
