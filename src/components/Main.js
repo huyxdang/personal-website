@@ -77,9 +77,9 @@ function About() {
                 className="accent-link"
               >
                 NaviBuddy
-              </a>{", "}
-              which received $15k+ and partnered with the Vietnam Fund for Children
-              with Disabilities.
+              </a>{". "}
+              It received $15k+, was presented live at the Paris SDG Olympiad,
+              and recently partnered with the Vietnam Fund for Children with Disabilities.
             </p>
 
             <p className="belief">
