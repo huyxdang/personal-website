@@ -10,7 +10,7 @@ function About() {
           <div className="hero-copy">
             <h1 className="hero-title">Huy X. Dang</h1>
             <p className="hero-text">
-              I aim to make AI more accessible.
+              Somewhere between research & product.
             </p>
 
             <p className="hero-text">
@@ -32,7 +32,7 @@ function About() {
               >
                 New Turing Institute
               </a>{" "}
-              (1 of 48) and ML at{" "}
+              under Dr. Thang Luong (DeepMind) and ML at{" "}
               <a
                 href="https://www.iclr.org/"
                 target="_blank"
