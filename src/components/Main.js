@@ -72,7 +72,7 @@ function About() {
                 className="accent-link"
               >
                 NaviBuddy
-              </a>{". "}
+              </a>{": "}
               It received $15k+, was presented live at the Paris SDG Olympiad,
               and recently partnered with the Vietnam Fund for Children with Disabilities.
             </p>
