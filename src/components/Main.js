@@ -10,12 +10,7 @@ function About() {
           <div className="hero-copy">
             <h1 className="hero-title">Huy X. Dang</h1>
             <p className="hero-text">
-              I’m interested in building AI applications.
-            </p>
-
-            <p className="hero-text">
-              I believe models are have become capable, but their power hasn't been *fully*
-              translated into user value yet.
+              Somewhere between research & product.
             </p>
 
             <p className="hero-text">
@@ -37,7 +32,7 @@ function About() {
               >
                 New Turing Institute
               </a>{" "}
-              (1 of 48) and ML at{" "}
+              under Dr. Thang Luong (DeepMind) and ML at{" "}
               <a
                 href="https://www.iclr.org/"
                 target="_blank"
@@ -58,12 +53,37 @@ function About() {
               >
                 NeurIPS ’25
               </a>{" "}
-              to explore research papers, won $15k+ in hackathons, and
-              pitched in front of hundreds of people.
+              and 
+              {" "}
+              <a
+                href="https://paper-rag-eight.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                PaperRAG
+              </a>{" "}
+              to explore research papers. I also built
+              {" "}
+              <a
+                href="https://www.youtube.com/watch?v=dKt-yfZ82qw&t=63s"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                NaviBuddy
+              </a>{". "}
+              It received $15k+, was presented live at the Paris SDG Olympiad,
+              and recently partnered with the Vietnam Fund for Children with Disabilities.
+            </p>
+
+            <p className="belief">
+              I optimize for learning, which I believe is a by-product of
+              working with great people on challenging problems.
             </p>
 
             <p className="interests">
-              I'm a proud Vietnamese. I also enjoy Jazz and Photography.
+              I'm a proud Vietnamese; I also enjoy Jazz and Photography.
             </p>
             <p className="hero-text">
               If you’re reading this, I’d love to chat! - {" "}
@@ -101,13 +121,26 @@ function About() {
               src={`${process.env.PUBLIC_URL}/headshot.jpg`}
               alt="Huy Dang"
             />
+            <p className="hero-photo-caption">@ Ta Xua, Viet Nam // Taken by Sister</p>
           </div>
         </div>
 
-        <section className="section-block">
-          <h2 className="section-title">Writings</h2>
-          <p className="hero-text">
+        <section className="writings">
+          <h2 className="writings-title">Writings</h2>
+          <p className="writings-text">
           </p>
+
+          <p className="hero-text">
+            <a
+              href="https://www.notion.so/Magistral-2fda3e4ac74f804da8eff7ba9f525ff2?source=copy_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="writing-link"
+            >
+              Magistral: Reasoning without Traces
+            </a>
+          </p>
+
           <p className="hero-text">
             <a
               href="https://huydang684106.substack.com/p/i-made-a-lot-of-mistakes-what-i-learned"
@@ -115,9 +148,10 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              A Lot of Mistakes: Lesson from 2025
+              A Lot of Mistakes: What I Learned in 2025
             </a>
           </p>
+
           <p className="hero-text">
             <a
               href="https://www.notion.so/Thought-Action-Obsersavation-TAO-Cycle-1e9a3e4ac74f806282a3eb3e127ee380?pvs=4"
@@ -125,10 +159,11 @@ function About() {
               rel="noopener noreferrer"
               className="writing-link"
             >
-              The Thought-Action-Observation Cycle
+              The Thought - Action - Observation Cycle
             </a>{" "}
 
           </p>
+
           <p className="hero-text">
             <a
               href="https://www.notion.so/Tools-in-LLMs-How-and-Why-1e9a3e4ac74f8010aa76ca86fa04a3cf?pvs=4"
@@ -139,6 +174,7 @@ function About() {
               Tools in LLMs - What, How, Why? 
             </a>{" "}
           </p>
+
           <p className="hero-text">
             <a
               href="https://www.notion.so/LLMs-Under-the-Hood-Messages-Special-Tokens-and-Chat-Templates-1e7a3e4ac74f80fa94cdd393393b2a5d?source=copy_link"
@@ -149,6 +185,7 @@ function About() {
               LLMs Under the Hood
             </a>{" "}
           </p>
+
         </section>
       </Container>
     </section>
