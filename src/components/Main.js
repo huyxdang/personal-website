@@ -32,7 +32,7 @@ function About() {
               >
                 New Turing Institute
               </a>{" "}
-              under Dr. Thang Luong (DeepMind) and ML at{" "}
+              under Dr. Thang Luong (Google DM) and ML at{" "}
               <a
                 href="https://www.iclr.org/"
                 target="_blank"
