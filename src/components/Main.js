@@ -32,7 +32,16 @@ function About() {
               >
                 New Turing Institute
               </a>{" "}
-              under Dr. Thang Luong (Google DM) and ML at{" "}
+              under{" "}
+              <a
+                href="https://research.google/people/105176/?&type=google"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                Dr. Thang Luong
+              </a>
+              {" "}(Google DM) and ML at{" "}
               <a
                 href="https://www.iclr.org/"
                 target="_blank"
