@@ -23,7 +23,7 @@ function About() {
               >
                 University of Toronto
               </a>
-              . I did AI research at the{" "}
+              , did AI research at the{" "}
               <a
                 href="https://newturing.ai/"
                 target="_blank"
@@ -41,7 +41,7 @@ function About() {
               >
                 Dr. Thang Luong
               </a>
-              {" "}(Google DM) and ML at{" "}
+              {" "}(Google) and ML at{" "}
               <a
                 href="https://www.iclr.org/"
                 target="_blank"
