@@ -1,5 +1,6 @@
 // Main.js (About)
 import React from "react";
+import { Link } from "react-router-dom";
 import Container from "../styles/Container";
 
 function About() {
@@ -92,7 +93,7 @@ function About() {
             </p>
 
             <p className="interests">
-              I'm a proud Vietnamese; I also enjoy Jazz and Photography.
+              <Link to="/vietnam" className="accent-link">I'm a proud Vietnamese</Link>; I also enjoy Jazz and Photography.
             </p>
             <p className="hero-text">
               If you’re reading this, I’d love to chat! - {" "}
@@ -136,8 +137,7 @@ function About() {
 
         <section className="writings">
           <h2 className="writings-title">Writings</h2>
-          <p className="writings-text">
-          </p>
+          <p className="writings-text"></p>
 
           <p className="hero-text">
             <a
@@ -196,6 +196,8 @@ function About() {
           </p>
 
         </section>
+
+
       </Container>
     </section>
   );
