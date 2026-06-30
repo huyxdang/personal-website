@@ -126,6 +126,19 @@ a {
   color: #b23b2a;
 }
 
+.thematic-break {
+  width: 100%;
+  max-width: 680px;
+  height: 1px;
+  margin: 3.75rem 0 3.25rem;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(178, 59, 42, 0.36),
+    rgba(43, 43, 43, 0.08)
+  );
+}
+
 .section-block {
   margin-top: 4.5rem;
   max-width: 680px;

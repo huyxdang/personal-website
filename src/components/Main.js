@@ -1,6 +1,5 @@
 // Main.js (About)
 import React from "react";
-import { Link } from "react-router-dom";
 import Container from "../styles/Container";
 
 function About() {
@@ -24,15 +23,7 @@ function About() {
               >
                 University of Toronto
               </a>
-              , did AI research at the{" "}
-              <a
-                href="https://newturing.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="accent-link"
-              >
-                New Turing Institute
-              </a>{" "}
+              {" "}and did AI research at the New Turing Institute{" "}
               under{" "}
               <a
                 href="https://research.google/people/105176/?&type=google"
@@ -42,16 +33,7 @@ function About() {
               >
                 Dr. Thang Luong
               </a>
-              {" "}(Google) and ML at{" "}
-              <a
-                href="https://www.iclr.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="accent-link"
-              >
-                ICLR
-              </a>
-              .
+              {" "}(Google).
               {" "}I also created{" "}
               <a
                 href="https://huyxdang.github.io/Emoji-Bench-Page/"
@@ -61,10 +43,10 @@ function About() {
               >
                 Emoji-Bench
               </a>
-              , a benchmark that isolates self-correction ability in LLMs,
+              {" "}to measure self-correction ability in LLMs,
               which was presented at the{" "}
               <a
-                href="https://summit.newturing.ai"
+                href="https://summit.newturing.ai/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="accent-link"
@@ -74,27 +56,16 @@ function About() {
               .
             </p>
             <p className="hero-text">
-              I built{" "}
+              I love building on the side. I've built{" "}
               <a
                 href="https://neurips-2025.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="accent-link"
               >
-                NeurIPS ’25
-              </a>{" "}
-              and 
-              {" "}
-              <a
-                href="https://paper-rag-eight.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="accent-link"
-              >
-                PaperRAG
-              </a>{" "}
-              to explore research papers. I also built
-              {" "}
+                NeurIPS '25
+              </a>
+              {" "}to explore research papers; And{" "}
               <a
                 href="https://www.youtube.com/watch?v=dKt-yfZ82qw&t=63s"
                 target="_blank"
@@ -102,18 +73,18 @@ function About() {
                 className="accent-link"
               >
                 NaviBuddy
-              </a>{": "}
-              It received $15k+, was presented live at the Paris SDG Olympiad,
-              and recently partnered with the Vietnam Fund for Children with Disabilities.
+              </a>
+              , an AI for the visually-disabled, which received $15k+ and
+              nominated for the Paris SDG Olympiad.
             </p>
 
             <p className="belief">
-              I optimize for learning, which I believe is a by-product of
-              working with great people on challenging problems.
+              I optimize for learning, which I believe is a byproduct of
+              working with great people on hard, important problems.
             </p>
 
             <p className="interests">
-              <Link to="/vietnam" className="accent-link">I'm a proud Vietnamese</Link>; I also enjoy Jazz and Photography.
+              I'm a proud Vietnamese; I also enjoy Jazz and Photography.
             </p>
             <p className="hero-text">
               If you’re reading this, I’d love to chat! - {" "}
@@ -154,6 +125,8 @@ function About() {
             <p className="hero-photo-caption">@ Ta Xua, Viet Nam // Taken by Sister</p>
           </div>
         </div>
+
+        <hr className="thematic-break" />
 
         <section className="writings">
           <h2 className="writings-title">Writings</h2>
