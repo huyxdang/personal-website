@@ -1,4 +1,5 @@
 // App.jsx
+import { Analytics } from "@vercel/analytics/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./components/About";
 import Blog from "./components/Blog";
@@ -15,6 +16,7 @@ function App() {
             <Route path="/writing" element={<Blog />} />
           </Routes>
         </main>
+        <Analytics />
       </div>
     </BrowserRouter>
   );
