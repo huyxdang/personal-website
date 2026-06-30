@@ -52,6 +52,26 @@ function About() {
                 ICLR
               </a>
               .
+              {" "}I also created{" "}
+              <a
+                href="https://huyxdang.github.io/Emoji-Bench-Page/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                Emoji-Bench
+              </a>
+              , a benchmark that isolates self-correction ability in LLMs,
+              which was presented at the{" "}
+              <a
+                href="https://summit.newturing.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accent-link"
+              >
+                GStar AI Summit
+              </a>
+              .
             </p>
             <p className="hero-text">
               I built{" "}
