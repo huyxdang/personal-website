@@ -1,8 +1,6 @@
-hey stranger,
+hey!
 
-this website contains a brief about my work and the things i enjoy. 
+this is my website - go away. 
 
-thank for caring enough to stalk! 
-
-warmly,
+with love,
 hwee
