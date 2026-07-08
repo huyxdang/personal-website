@@ -3,9 +3,9 @@
   "name": "Huy X. Dang",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "favicon-thap-rua.png",
       "type": "image/png",
-      "sizes": "192x192 512x512"
+      "sizes": "32x32"
     }
   ],
   "start_url": ".",
