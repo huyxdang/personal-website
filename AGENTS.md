@@ -67,10 +67,12 @@ import Sidenote from "../../components/Sidenote.astro";
 - The `Huy` highlight on About is `#fff495` (karinanguyen.com's mark color),
   flat — no shadow, no hover lift. Keep it subtle; the owner rejected both
   brighter yellows and non-yellow alternatives.
-- About-page links: only University of Toronto and Dr. Thang Luong get the
-  butter highlight (`.accent-key`); all other links (`.accent-link`) are
-  never bold or underlined — muted gray `#55585a`, darkening on hover. The
-  owner explicitly de-emphasized everything except those two credentials.
+- About-page links (`.accent-link`): all identical — body-text color
+  `#2b2b2b` with a quiet always-on 1px underline (`rgba(40,40,40,.4)`,
+  offset 3px), brick on hover — the same treatment as essay links. The
+  owner iterated through bolder options (bold + 2px underline, darker-only,
+  butter-highlighted credentials) and settled here — don't re-add emphasis
+  to individual links or remove the underline.
 - ToC active state: color change only, **never bold**; the sliding 4px ink dot
   (`.toc-active-marker`) animates with `cubic-bezier(0.22, 1, 0.36, 1)` —
   copied from thinkingmachines.ai.

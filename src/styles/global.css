@@ -271,34 +271,20 @@ a {
   text-align: center;
 }
 
-/* Regular About-page links: no underline, slightly muted;
-   darken on hover to signal clickability */
+/* About-page links: body-text color with a quiet always-on underline —
+   the same treatment as links inside essays */
 .accent-link {
-  color: #55585a;
-  text-decoration: none;
-  transition: color 180ms ease;
+  color: #2b2b2b;
+  text-decoration: underline;
+  text-decoration-color: rgba(40, 40, 40, 0.4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
 .accent-link:hover {
-  color: #111;
-}
-
-/* The two credentials worth emphasizing get the butter highlight */
-.accent-key {
-  color: #2b2b2b;
-  background: #fff495;
-  padding: 0 0.15em;
-  text-decoration: none;
-  transition: background-color 180ms ease;
-}
-
-.accent-key:hover {
-  background: #ffef6e;
-}
-
-.accent-key:focus-visible {
-  outline: 2px solid rgba(178, 59, 42, 0.5);
-  outline-offset: 3px;
+  color: #b23b2a;
+  text-decoration-color: #b23b2a;
 }
 
 .accent-link:focus-visible {
