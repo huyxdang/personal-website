@@ -1,0 +1,24 @@
+---
+/**
+ * Tufte-style sidenote for essays (use in .mdx posts):
+ *
+ *   import Sidenote from "../../components/Sidenote.astro";
+ *   ...text<Sidenote id="dmel">
+ *     <a href="https://arxiv.org/abs/2407.15835">dMel</a> (Bai et al, 2024)
+ *   </Sidenote> more text...
+ *
+ * Desktop: numbered note floats into the right margin beside the text.
+ * Mobile: collapses; tapping the number reveals it inline.
+ */
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+const noteId = `sn-${id}`;
+---
+
+<label for={noteId} class="margin-toggle sidenote-number"></label><input
+  type="checkbox"
+  id={noteId}
+  class="margin-toggle"
+/><span class="sidenote"><slot /></span>

@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+---
+import Analytics from "@vercel/analytics/astro";
+import MiniNav from "../components/MiniNav.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Huy X. Dang",
+  description = "Huy likes applied AI and wants to be useful at scale.",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
@@ -6,7 +24,7 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-GP8XWH8RB9"
     ></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -16,12 +34,10 @@
     </script>
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
 
@@ -36,14 +52,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
 
-    <title>Huy X. Dang</title>
-
-    <meta
-      name="description"
-      content="Huy likes applied AI and wants to be useful at scale."
-    />
-
-    <link rel="canonical" href="https://www.huyxdang.com/" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
 
     <meta
       name="keywords"
@@ -53,36 +64,33 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Huy X. Dang" />
-    <meta property="og:title" content="Huy X. Dang" />
+    <meta property="og:title" content={title} />
     <meta
       property="og:description"
       content="AI engineer building agentic RAG systems, LLM routing, and applied AI products that convert model capability into real-world value."
     />
-    <meta property="og:url" content="https://www.huyxdang.com/" />
-    <meta property="og:image" content="%PUBLIC_URL%/preview.jpg" />
-    <meta
-      property="og:image:alt"
-      content="Huy X. Dang"
-    />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/preview.jpg" />
+    <meta property="og:image:alt" content="Huy X. Dang" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Huy X. Dang" />
+    <meta name="twitter:title" content={title} />
     <meta
       name="twitter:description"
       content="Agentic RAG, LLM routing, and applied AI systems built for real user and enterprise value."
     />
-    <meta name="twitter:image" content="%PUBLIC_URL%/preview.jpg" />
+    <meta name="twitter:image" content="/preview.jpg" />
     <meta name="twitter:site" content="@xhuydang" />
     <meta name="twitter:creator" content="@xhuydang" />
 
     <!-- App -->
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon-thap-rua.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-thap-rua.png" />
+    <link rel="apple-touch-icon" href="/favicon-thap-rua.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" href="/favicon-thap-rua.png" />
 
     <!-- Structured Data -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -109,6 +117,8 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <MiniNav />
+    <slot />
+    <Analytics />
   </body>
 </html>

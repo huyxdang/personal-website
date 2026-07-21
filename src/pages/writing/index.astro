@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const posts = (await getCollection("writing")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+---
+
+<Base title="Writing - Huy X. Dang" description="Essays and notes by Huy X. Dang.">
+  <section class="page-shell">
+    <div class="container">
+      <section class="writing-page">
+        <h1 class="sr-only">Writing</h1>
+
+        <ul class="post-list">
+          {
+            posts.map((post) => {
+              const href = post.data.external ?? `/writing/${post.id}/`;
+              const externalAttrs = post.data.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {};
+              return (
+                <li class="post-item">
+                  <p class="post-title-line">
+                    <a href={href} class="post-link" {...externalAttrs}>
+                      {post.data.title}
+                    </a>{" "}
+                    <span class="post-date">({fmt(post.data.date)})</span>
+                  </p>
+                  <p class="post-desc">{post.data.description}</p>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,828 @@
+/* ============================================================
+   Global — carried over from the CRA site (About page unchanged)
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+  font-family: "Georgia", "Times New Roman", serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0 0 1.25rem;
+  color: #2b2b2b;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Replaces the old JS <Container> component */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 2.5rem 0 5rem;
+  /* horizontal clip lives here, not on <body>, so position:sticky
+     keeps working on the essay pages */
+  overflow-x: clip;
+}
+
+/* Site nav: wordmark left, links right — frame, not content
+   (thinkingmachines.ai pattern) */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 2.5rem;
+}
+
+.site-wordmark {
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #282828;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.site-wordmark:hover {
+  color: #b23b2a;
+}
+
+.site-nav-links {
+  display: flex;
+  gap: 1.6rem;
+  /* keeps links pinned right when the wordmark is absent (home page) */
+  margin-left: auto;
+}
+
+.site-nav-link {
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  color: #9a9691;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.site-nav-link:hover,
+.site-nav-link.active {
+  color: #282828;
+}
+
+.site-nav-link.active {
+  font-weight: 600;
+}
+
+.site-wordmark:focus-visible,
+.site-nav-link:focus-visible {
+  outline: 2px solid rgba(178, 59, 42, 0.5);
+  outline-offset: 5px;
+}
+
+@media (max-width: 700px) {
+  .site-nav {
+    padding: 1.1rem 1.25rem;
+  }
+}
+
+/* ---------- About page (unchanged from CRA site) ---------- */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 54ch) minmax(220px, 260px);
+  grid-template-areas:
+    "copy photo"
+    "social caption";
+  align-items: end;
+  justify-content: start;
+  column-gap: clamp(4rem, 10vw, 9rem);
+  row-gap: 0;
+  margin-top: 5rem;
+}
+
+.hero-copy {
+  grid-area: copy;
+  max-width: 54ch;
+}
+
+.hero-title {
+  font-size: clamp(1.664rem, 2.24vw, 2.304rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-highlight {
+  position: relative;
+  display: inline-block;
+  margin-right: 0.08em;
+  padding: 0.02em 0.12em 0.04em;
+  background: #fff200;
+  box-shadow: 0 3px 10px rgba(43, 43, 43, 0.18);
+  cursor: help;
+  outline-offset: 4px;
+  transition: background-color 160ms ease, box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.hero-highlight:hover,
+.hero-highlight:focus-visible {
+  background: #fff600;
+  box-shadow: 0 7px 18px rgba(43, 43, 43, 0.22);
+  transform: translateY(-1px);
+}
+
+.hero-pronunciation-popover {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  z-index: 3;
+  min-width: 8rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(76, 73, 69, 0.94);
+  box-shadow: 0 14px 36px rgba(43, 43, 43, 0.3);
+  color: #f8f3ef;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  transform: translate(-50%, -0.2rem);
+  transition: opacity 160ms ease, transform 160ms ease;
+  white-space: nowrap;
+}
+
+.hero-pronunciation-popover::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 0.9rem;
+  height: 0.9rem;
+  background: rgba(76, 73, 69, 0.94);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  transform: translate(-50%, 50%) rotate(45deg);
+}
+
+.hero-highlight:hover .hero-pronunciation-popover,
+.hero-highlight:focus-visible .hero-pronunciation-popover {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.hero-text {
+  font-size: 1.12rem;
+  max-width: 54ch;
+}
+
+.interests {
+  max-width: 54ch;
+  margin-bottom: 0;
+}
+
+.hero-photo {
+  grid-area: photo;
+  display: flex;
+  align-items: flex-end;
+  align-self: end;
+  justify-content: flex-end;
+  padding-top: calc(clamp(1.664rem, 2.24vw, 2.304rem) + 1.5rem);
+}
+
+.hero-photo-link {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  border-radius: 10px;
+  outline-offset: 5px;
+}
+
+.hero-photo-link img {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hero-photo-link:focus-visible {
+  outline: 2px solid rgba(178, 59, 42, 0.5);
+}
+
+.hero-photo-caption {
+  grid-area: caption;
+  align-self: center;
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.8rem;
+  color: #8f8a86;
+  width: 100%;
+  max-width: 260px;
+  text-align: center;
+}
+
+.accent-link {
+  --accent-link-lowerline: #c85a47;
+
+  font-weight: 600;
+  color: #2b2b2b;
+  text-decoration-line: underline;
+  text-decoration-color: #2b2b2b;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  background-image: linear-gradient(
+    var(--accent-link-lowerline),
+    var(--accent-link-lowerline)
+  );
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  padding-bottom: 2px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.accent-link:hover {
+  --accent-link-lowerline: #55585a;
+
+  color: #55585a;
+  text-decoration-color: #55585a;
+}
+
+.accent-link:focus-visible {
+  outline: 2px solid rgba(178, 59, 42, 0.5);
+  outline-offset: 4px;
+  color: #2b2b2b;
+}
+
+.social-links {
+  grid-area: social;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  margin-top: 1.25rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 1.25rem;
+  min-height: 1.8rem;
+  color: #2b2b2b;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.contact-link:hover {
+  color: #c85a47;
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid rgba(178, 59, 42, 0.5);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "social"
+      "photo"
+      "caption";
+    align-items: center;
+    row-gap: 0;
+    margin-top: 0;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .interests {
+    margin-bottom: 1.25rem;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 1.8rem;
+    margin-top: 0;
+  }
+
+  .hero-photo {
+    justify-content: center;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .hero-photo-link,
+  .hero-photo-caption {
+    max-width: 320px;
+  }
+
+  .page-shell {
+    padding-top: 2rem;
+  }
+}
+
+/* ============================================================
+   Writing list — rajan.sh-style index
+   ============================================================ */
+
+:root {
+  --serif: "Iowan Old Style", "Lora", "Palatino Linotype", Georgia, serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ink: #282828;
+  --ink-muted: #55585a;
+  --ink-faint: #8f8a86;
+  --brick: #b23b2a;
+}
+
+.writing-page {
+  margin: 5rem auto 0;
+  max-width: 640px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 2.1rem;
+}
+
+.post-title-line {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: 0.25rem;
+}
+
+.post-link {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(40, 40, 40, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.post-link:hover {
+  color: var(--brick);
+  text-decoration-color: var(--brick);
+}
+
+.post-link:focus-visible {
+  outline: 2px solid rgba(178, 59, 42, 0.5);
+  outline-offset: 3px;
+}
+
+.post-date {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.post-desc {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  max-width: 58ch;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Essay page — Inkling-style article template
+   Measured from thinkingmachines.ai: 660px column, serif 17px/1.6
+   at #282828, sticky left ToC, Tufte-style right-margin sidenotes.
+   ============================================================ */
+
+.essay-shell {
+  min-height: 100vh;
+  padding: 2.5rem 0 6rem;
+}
+
+/* Hero artwork between the title block and the columns — sized like the
+   thinkingmachines.ai hero panel, wider than the text column */
+.essay-hero {
+  max-width: 825px;
+  margin: 0 auto 3.25rem;
+  padding: 0 2rem;
+}
+
+.essay-hero img {
+  display: block;
+  width: 100%;
+}
+
+.essay-wrap {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 660px) 200px;
+  justify-content: center;
+  column-gap: 3rem;
+  padding: 0 2rem;
+}
+
+.essay-toc {
+  grid-column: 1;
+  position: sticky;
+  top: 82px;
+  align-self: start;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.essay-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.essay-toc li {
+  position: relative;
+  margin-bottom: 0.55rem;
+}
+
+.essay-toc li.toc-depth-3 {
+  padding-left: 0.85rem;
+}
+
+/* Small › that fades in beside an entry on hover — purely visual */
+.toc-hover-arrow {
+  position: absolute;
+  left: -0.9rem;
+  top: -0.05em;
+  font-size: 1rem;
+  line-height: inherit;
+  color: #9a9691;
+  opacity: 0;
+  transition: opacity 140ms ease;
+  pointer-events: none;
+}
+
+.essay-toc li:hover > .toc-hover-arrow {
+  opacity: 1;
+}
+
+/* Hovering the active entry: the arrow replaces the dot */
+.essay-toc.has-active-marker:has(li:hover > a.active) .toc-active-marker {
+  opacity: 0;
+}
+
+.essay-toc a {
+  position: relative;
+  display: inline-block;
+  color: #676767;
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+.essay-toc a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(40, 40, 40, 0.22);
+  text-underline-offset: 3px;
+}
+
+.essay-toc a.active {
+  color: var(--ink);
+}
+
+/* Single dot that slides to the active section (matches
+   thinkingmachines.ai: 4px ink circle, sprung transform) */
+.toc-active-marker {
+  position: absolute;
+  left: -0.8rem;
+  top: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.16s ease-in-out;
+}
+
+.essay-toc.has-active-marker .toc-active-marker {
+  opacity: 1;
+}
+
+.essay {
+  grid-column: 2;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Title block sits centered above the columns, so the ToC starts
+   level with the first body paragraph (as on thinkingmachines.ai) */
+.essay-header {
+  max-width: 660px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.essay-title {
+  font-family: var(--serif);
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.7rem;
+  /* a \n in the frontmatter title becomes a manual line break here
+     (collapses to a space everywhere else: list page, <title>) */
+  white-space: pre-line;
+}
+
+/* Author + date under the title, like thinkingmachines.ai:
+   same sans/size, author in ink, date in warm gray */
+.essay-author {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.essay-date {
+  font-family: var(--sans);
+  font-size: 0.9375rem; /* 15px, matches thinkingmachines.ai */
+  color: rgb(107, 104, 102);
+  margin-bottom: 0;
+}
+
+.essay p {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0 0 1.35rem;
+}
+
+.intro-anchor {
+  display: block;
+  scroll-margin-top: 90px;
+}
+
+.essay h2 {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 2.6rem 0 1.1rem;
+  scroll-margin-top: 90px;
+}
+
+.essay h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 2.1rem 0 0.9rem;
+  scroll-margin-top: 90px;
+}
+
+.essay a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(40, 40, 40, 0.4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+.essay a:hover {
+  color: var(--brick);
+  text-decoration-color: var(--brick);
+}
+
+.essay blockquote {
+  margin: 1.8rem 0;
+  padding: 1.1rem 1.4rem;
+  background: #f8f3ef;
+  border-left: 3px solid #d8cfc5;
+  font-style: italic;
+}
+
+.essay blockquote p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.essay ul,
+.essay ol {
+  margin: 0 0 1.35rem;
+  padding-left: 1.4rem;
+}
+
+.essay li {
+  margin-bottom: 0.4rem;
+}
+
+.essay img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.essay figure {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f3ef;
+  border-radius: 8px;
+}
+
+.essay figcaption {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  text-align: center;
+  margin-top: 0.8rem;
+}
+
+.essay hr {
+  border: 0;
+  border-top: 1px solid #e5ddd4;
+  margin: 2.5rem auto;
+  width: 40%;
+}
+
+.essay code {
+  font-size: 0.88em;
+  background: #f4efe9;
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+}
+
+.essay pre {
+  background: #f8f3ef;
+  padding: 1.1rem 1.3rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0 0 1.35rem;
+}
+
+.essay pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ---------- Tufte-style sidenotes (right margin) ---------- */
+
+.sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.sidenote-number::after {
+  content: counter(sidenote-counter);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.1em;
+  color: var(--brick);
+}
+
+.sidenote::before {
+  content: counter(sidenote-counter) ". ";
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--brick);
+}
+
+.essay {
+  counter-reset: sidenote-counter;
+}
+
+.sidenote {
+  float: right;
+  clear: right;
+  margin-right: calc(-200px - 3rem);
+  width: 200px;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+input.margin-toggle {
+  display: none;
+}
+
+label.margin-toggle {
+  cursor: pointer;
+}
+
+/* ---------- Responsive collapse ---------- */
+
+@media (max-width: 1160px) {
+  .essay-wrap {
+    grid-template-columns: minmax(0, 660px);
+  }
+
+  .essay-toc {
+    display: none;
+  }
+
+  .essay {
+    grid-column: 1;
+  }
+
+  .sidenote {
+    display: none;
+    float: none;
+    clear: none;
+    width: 100%;
+    margin: 0.6rem 0 1rem;
+    padding: 0.7rem 1rem;
+    background: #f8f3ef;
+    border-radius: 6px;
+  }
+
+  input.margin-toggle:checked + .sidenote {
+    display: block;
+  }
+}
+
+@media (max-width: 700px) {
+  .essay-shell {
+    padding-top: 3.5rem;
+  }
+
+  .essay {
+    font-size: 16px;
+  }
+}

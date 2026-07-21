@@ -1,0 +1,16 @@
+---
+const path = Astro.url.pathname;
+const isWriting = path.startsWith("/writing") || path.startsWith("/blog");
+// The About page's h1 is already the name — no wordmark there
+const showWordmark = path !== "/";
+---
+
+<nav class="site-nav" aria-label="Primary">
+  {showWordmark && <a href="/" class="site-wordmark">HUY X. DANG</a>}
+  <div class="site-nav-links">
+    <a href="/" class:list={["site-nav-link", { active: !isWriting }]}>About</a>
+    <a href="/writing" class:list={["site-nav-link", { active: isWriting }]}>
+      Writing
+    </a>
+  </div>
+</nav>

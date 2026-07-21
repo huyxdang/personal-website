@@ -1,0 +1,117 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("writing", ({ data }) => !data.external);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+// The intro prose has no heading in the body, but still gets a ToC entry
+// anchored to the top of the article
+const toc = [
+  { depth: 2, slug: "introduction", text: "Introduction" },
+  ...headings.filter((h) => h.depth === 2 || h.depth === 3),
+];
+
+const dateFull = post.data.date.toLocaleString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
+---
+
+<Base
+  title={`${post.data.title} - Huy X. Dang`}
+  description={post.data.description}
+>
+  <div class="essay-shell">
+    <header class="essay-header">
+      <h1 class="essay-title">{post.data.title}</h1>
+      <p class="essay-author">{post.data.author}</p>
+      <p class="essay-date">{dateFull}</p>
+    </header>
+
+    {
+      post.data.hero && (
+        <figure class="essay-hero">
+          <img src={post.data.hero} alt="" />
+        </figure>
+      )
+    }
+
+    <div class="essay-wrap">
+      {
+        toc.length > 0 && (
+          <nav class="essay-toc" aria-label="Table of contents">
+            <span class="toc-active-marker" aria-hidden="true"></span>
+            <ul>
+              {toc.map((h) => (
+                <li class={`toc-depth-${h.depth}`}>
+                  {post.data.emphasize.includes(h.slug) && (
+                    <span class="toc-hover-arrow" aria-hidden="true">›</span>
+                  )}
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )
+      }
+
+      <article class="essay">
+        <span id="introduction" class="intro-anchor" aria-hidden="true"></span>
+        <Content />
+      </article>
+    </div>
+  </div>
+</Base>
+
+<script>
+  // Highlight the ToC entry for the section currently being read:
+  // the last heading above the reading line (viewport top + offset).
+  const tocLinks = [...document.querySelectorAll<HTMLAnchorElement>(".essay-toc a")];
+  const headings = [
+    ...document.querySelectorAll<HTMLElement>(
+      ".essay .intro-anchor, .essay h2[id], .essay h3[id]"
+    ),
+  ];
+
+  if (tocLinks.length > 0 && headings.length > 0) {
+    const bySlug = new Map(tocLinks.map((a) => [a.hash.slice(1), a]));
+    const toc = document.querySelector<HTMLElement>(".essay-toc");
+    const marker = document.querySelector<HTMLElement>(".toc-active-marker");
+
+    const update = () => {
+      const line = 120;
+      let current: HTMLElement | null = null;
+      for (const h of headings) {
+        if (h.getBoundingClientRect().top <= line) current = h;
+        else break;
+      }
+      // Before any section reaches the reading line (i.e. on page load),
+      // the reader is in the Introduction
+      if (!current) current = headings[0];
+      tocLinks.forEach((a) => a.classList.remove("active"));
+      const link = current ? bySlug.get(current.id) : null;
+      if (link) {
+        link.classList.add("active");
+        // slide the dot to the first line of the active entry
+        if (marker && toc) {
+          const y = link.getBoundingClientRect().top - toc.getBoundingClientRect().top;
+          marker.style.transform = `translateY(${y + 7}px)`;
+        }
+      }
+      toc?.classList.toggle("has-active-marker", Boolean(link));
+    };
+
+    addEventListener("scroll", update, { passive: true });
+    update();
+  }
+</script>
