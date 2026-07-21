@@ -53,15 +53,24 @@ import Sidenote from "../../components/Sidenote.astro";
 
 ## Design system (measured values — keep faithful)
 
-- Essay body: serif (`--serif`: Iowan Old Style → Lora → Georgia), 17px/1.6,
-  color `#282828`, column `max-width: 660px`. Matches thinkingmachines.ai.
+- Font split: system sans (`--sans`) is the site-wide DEFAULT (About page,
+  nav, all chrome); the serif stack (`--serif`: Iowan Old Style → Lora →
+  Georgia) is reserved for essay content only. Owner's explicit choice —
+  don't re-serif the About page.
+- Essay body: serif (`--serif`), 17px/1.6, color `#282828`, column
+  `max-width: 660px`. Matches thinkingmachines.ai.
 - Essay date: sans 15px, `rgb(107, 104, 102)` — measured from their site.
 - Small UI (ToC, dates, descriptions): system sans (`--sans`), gray `#676767`.
 - Page background is white everywhere; the old cream `#f8f3ef` survives only
   as accents (blockquotes, code panels, figures). Do not reintroduce it as a
   page background.
-- The yellow `Huy` highlight on About stays yellow (`#fff200`) — owner's call,
-  alternatives were offered and declined.
+- The `Huy` highlight on About is `#fff495` (karinanguyen.com's mark color),
+  flat — no shadow, no hover lift. Keep it subtle; the owner rejected both
+  brighter yellows and non-yellow alternatives.
+- About-page links: only University of Toronto and Dr. Thang Luong get the
+  butter highlight (`.accent-key`); all other links (`.accent-link`) are
+  never bold or underlined — muted gray `#55585a`, darkening on hover. The
+  owner explicitly de-emphasized everything except those two credentials.
 - ToC active state: color change only, **never bold**; the sliding 4px ink dot
   (`.toc-active-marker`) animates with `cubic-bezier(0.22, 1, 0.36, 1)` —
   copied from thinkingmachines.ai.

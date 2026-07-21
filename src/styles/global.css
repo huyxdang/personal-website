@@ -13,7 +13,9 @@ body {
   width: 100%;
   min-height: 100%;
   background-color: #fff;
-  font-family: "Georgia", "Times New Roman", serif;
+  /* system sans is the site default; the serif stack is reserved
+     for essay content (see --serif) */
+  font-family: var(--sans);
   box-sizing: border-box;
 }
 
@@ -159,19 +161,16 @@ a {
   display: inline-block;
   margin-right: 0.08em;
   padding: 0.02em 0.12em 0.04em;
-  background: #fff200;
-  box-shadow: 0 3px 10px rgba(43, 43, 43, 0.18);
+  /* karinanguyen.com's mark color — soft, flat, no shadow */
+  background: #fff495;
   cursor: help;
   outline-offset: 4px;
-  transition: background-color 160ms ease, box-shadow 160ms ease,
-    transform 160ms ease;
+  transition: background-color 160ms ease;
 }
 
 .hero-highlight:hover,
 .hero-highlight:focus-visible {
-  background: #fff600;
-  box-shadow: 0 7px 18px rgba(43, 43, 43, 0.22);
-  transform: translateY(-1px);
+  background: #ffef6e;
 }
 
 .hero-pronunciation-popover {
@@ -186,7 +185,7 @@ a {
   background: rgba(76, 73, 69, 0.94);
   box-shadow: 0 14px 36px rgba(43, 43, 43, 0.3);
   color: #f8f3ef;
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: var(--sans);
   font-size: 0.78rem;
   font-style: italic;
   font-weight: 400;
@@ -272,31 +271,34 @@ a {
   text-align: center;
 }
 
+/* Regular About-page links: no underline, slightly muted;
+   darken on hover to signal clickability */
 .accent-link {
-  --accent-link-lowerline: #c85a47;
-
-  font-weight: 600;
-  color: #2b2b2b;
-  text-decoration-line: underline;
-  text-decoration-color: #2b2b2b;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
-  background-image: linear-gradient(
-    var(--accent-link-lowerline),
-    var(--accent-link-lowerline)
-  );
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 100% 1px;
-  padding-bottom: 2px;
-  transition: color 180ms ease, text-decoration-color 180ms ease;
+  color: #55585a;
+  text-decoration: none;
+  transition: color 180ms ease;
 }
 
 .accent-link:hover {
-  --accent-link-lowerline: #55585a;
+  color: #111;
+}
 
-  color: #55585a;
-  text-decoration-color: #55585a;
+/* The two credentials worth emphasizing get the butter highlight */
+.accent-key {
+  color: #2b2b2b;
+  background: #fff495;
+  padding: 0 0.15em;
+  text-decoration: none;
+  transition: background-color 180ms ease;
+}
+
+.accent-key:hover {
+  background: #ffef6e;
+}
+
+.accent-key:focus-visible {
+  outline: 2px solid rgba(178, 59, 42, 0.5);
+  outline-offset: 3px;
 }
 
 .accent-link:focus-visible {

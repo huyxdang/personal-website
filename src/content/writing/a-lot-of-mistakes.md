@@ -1,5 +1,5 @@
 ---
-title: "A Lot of Mistakes: What I Learned in 2025"
+title: "A Lot of Mistakes: What I\nLearned in 2025"
 date: 2025-12-30
 description: "After getting a lot of things wrong — and some things right"
 ---
