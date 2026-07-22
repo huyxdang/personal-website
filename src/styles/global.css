@@ -75,7 +75,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem 2.5rem;
+  /* 1156px = the essay grid (200px ToC + 660px text + 200px sidenotes
+     + two 3rem gaps), so the wordmark aligns with the ToC's left edge
+     and the links with the sidenote column's right edge */
+  max-width: calc(1156px + 4rem);
+  margin: 0 auto;
+  padding: 1.6rem 2rem;
 }
 
 .site-wordmark {
@@ -523,8 +528,12 @@ a {
   opacity: 1;
 }
 
-/* Hovering the active entry: the arrow replaces the dot */
-.essay-toc.has-active-marker:has(li:hover > a.active) .toc-active-marker {
+/* Hovering an emphasized active entry: the arrow replaces the dot.
+   Only fires when the hovered active entry actually has an arrow —
+   plain subsections keep their dot on hover. */
+.essay-toc.has-active-marker:has(
+    li:hover:has(> .toc-hover-arrow) > a.active
+  ) .toc-active-marker {
   opacity: 0;
 }
 
@@ -637,6 +646,7 @@ a {
   font-family: var(--serif);
   font-size: 1.15rem;
   font-weight: 600;
+  font-style: italic;
   margin: 2.1rem 0 0.9rem;
   scroll-margin-top: 90px;
 }
@@ -696,6 +706,23 @@ a {
   color: var(--ink-faint);
   text-align: center;
   margin-top: 0.8rem;
+}
+
+.media-figure video {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.media-placeholder {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  text-align: center;
+  padding: 3.5rem 1rem;
+  border: 1px dashed #d8cfc5;
+  border-radius: 6px;
+  background: #fff;
 }
 
 .essay hr {
